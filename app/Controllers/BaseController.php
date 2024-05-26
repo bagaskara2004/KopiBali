@@ -21,6 +21,7 @@ use Psr\Log\LoggerInterface;
  */
 abstract class BaseController extends Controller
 {
+    protected $title = 'Coffee';
     /**
      * Instance of the main Request object.
      *
