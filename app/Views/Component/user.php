@@ -20,11 +20,10 @@
     <nav class="navbar navbar-expand-lg bg-body shadow position-sticky top-0 z-3">
         <div class="container d-flex justify-content-between">
             <div class="d-flex">
-                <button type="button" class="button-icon mx-1" id="btnNavbar"><i class="bi  bi-list fs-3"></i></button>
+                <button type="button" class="button-icon mx-1" id="btnNavbar"><i class="bi  bi-list fs-4"></i></button>
                 <a class="navbar-brand" href="#">Coffee</a>
             </div>
             <div class="d-flex justify-content-end">
-                <button type="button" class="button-icon mx-1"><i class="bi bi-search"></i></button>
                 <div class="vr my-2"></div>
                 <button type="button" class="button-icon mx-1" id="tema"><i class="bi bi-sun-fill"></i></button>
                 <a href="#" class="button-primary">Login</a>
@@ -39,7 +38,7 @@
                     <a class="nav-link" href="/about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Product</a>
+                    <a class="nav-link" href="/product">Product</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Promotion</a>
