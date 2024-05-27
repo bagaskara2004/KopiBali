@@ -44,7 +44,7 @@
                     <a class="nav-link" href="#">Promotion</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Gallery</a>
+                    <a class="nav-link" href="/gallery">Gallery</a>
                 </li>
             </ul>
         </div>
@@ -62,7 +62,7 @@
                 <input type="email" placeholder="Input Email" class="w-100 px-3 bg-light border-0 text-dark">
                 <button type="submit" class="button-primary ms-1">Submit</button>
             </form>
-            <div class="row">
+            <div class="row w-100">
                 <div class="col-12 col-md-4 text-center">
                     <div class="card background-black mb-3 border-0">
                         <div class="card-header border-0 text-light background-gray">Coffee</div>
@@ -89,7 +89,7 @@
                                 <i class="bi bi-geo-alt-fill"></i>
                                 jalan pengangguran
                             </p>
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3942.8527291037726!2d115.15971477501627!3d-8.799903491252605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd244c13ee9d753%3A0x6c05042449b50f81!2sPoliteknik%20Negeri%20Bali!5e0!3m2!1sid!2sid!4v1715525729745!5m2!1sid!2sid" width="300" height="100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3942.8527291037726!2d115.15971477501627!3d-8.799903491252605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd244c13ee9d753%3A0x6c05042449b50f81!2sPoliteknik%20Negeri%20Bali!5e0!3m2!1sid!2sid!4v1715525729745!5m2!1sid!2sid" width="200" height="100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>

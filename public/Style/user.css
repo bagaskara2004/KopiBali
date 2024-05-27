@@ -99,9 +99,15 @@ footer{
     padding: 8px 0;
     font-size: 12px;
 }
-.list-product{
+.list-product,.list-gallery{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
     place-items: center;
     gap: 20px;
+}
+.text-gallery{
+    border-bottom: 3px solid var(--bs-body-color);
+    display: inline-block;
+    padding: 0 20px 3px 0 ;
+    margin-left: 20px;
 }
