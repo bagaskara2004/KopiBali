@@ -30,6 +30,9 @@ class Product extends Migration
                 'type'       => 'INT',
                 'unsigned'       => true,
             ],
+            'rekomended_product' => [
+                'type'       => 'BOOLEAN',
+            ],
         ]);
         $this->forge->addKey('id_product', true);
         $this->forge->addForeignKey('id_admin','admin','id_admin');
