@@ -26,7 +26,7 @@
             <div class="d-flex justify-content-end">
                 <div class="vr my-2"></div>
                 <button type="button" class="button-icon mx-1" id="tema"><i class="bi bi-sun-fill"></i></button>
-                <a href="#" class="button-primary">Login</a>
+                <a href="/auth" class="button-primary">Login</a>
             </div>
         </div>
         <div class="container d-none shadow" id="navbar-link">

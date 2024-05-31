@@ -9,17 +9,17 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="/Login/css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-  <title>Auth Section</title>
+  <title>Auth</title>
 </head>
 
 <body>
   <!-- navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid mt-1">
-      <a class="navbar-brand ms-5" href="#">
-        <img src="assets/img/logo.png" alt="Logo" loading="lazy" />
+      <a class="navbar-brand ms-5" href="/">
+        <img src="/Login/img/logo.png" alt="Logo" loading="lazy" />
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,7 +78,7 @@
               </div>
             </div>
             <div class="col-lg-6 d-none d-lg-flex">
-              <img src="assets/img/gambar_login.jpg" alt="Login image" class="img-fluid">
+              <img src="/Login/img/gambar_login.jpg" alt="Login image" class="img-fluid">
             </div>
           </div>
         </div>
