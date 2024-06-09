@@ -11,18 +11,16 @@ class Promotion extends Migration
         $this->forge->addField([
             'id_promotion' => [
                 'type'           => 'INT',
-                'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'id_admin' => [
+            'id_shop' => [
                 'type'           => 'INT',
-                'unsigned'       => true,
             ],
             'title_promotion' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '200',
             ],
-            'desc_promotion' => [
+            'description_promotion' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '200',
             ],
@@ -30,9 +28,15 @@ class Promotion extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => '200',
             ],
+            'start_date' => [
+                'type'       => 'DATE',
+            ],
+            'end_date' => [
+                'type'       => 'DATE',
+            ],
         ]);
         $this->forge->addKey('id_promotion', true);
-        $this->forge->addForeignKey('id_admin','admin','id_admin');
+        $this->forge->addForeignKey('id_shop', 'shop', 'id_shop');
         $this->forge->createTable('promotion');
     }
 

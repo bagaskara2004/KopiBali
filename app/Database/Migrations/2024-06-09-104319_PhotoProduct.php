@@ -9,27 +9,25 @@ class PhotoProduct extends Migration
     public function up()
     {
         $this->forge->addField([
-            'id_photo_product' => [
+            'id_photoProduct' => [
                 'type'           => 'INT',
-                'unsigned'       => true,
                 'auto_increment' => true,
             ],
             'id_product' => [
                 'type'           => 'INT',
-                'unsigned'       => true,
             ],
             'photo_product' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '200',
-            ],
+            ]
         ]);
-        $this->forge->addKey('id_photo_product', true);
-        $this->forge->addForeignKey('id_product', 'product', 'id_product');
-        $this->forge->createTable('photo_product');
+        $this->forge->addKey('id_photoProduct', true);
+        $this->forge->addForeignKey('id_product','product','id_product');
+        $this->forge->createTable('photoProduct');
     }
 
     public function down()
     {
-        $this->forge->dropTable('photo_product');
+        $this->forge->dropTable('photoProduct');
     }
 }

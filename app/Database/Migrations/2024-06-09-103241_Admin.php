@@ -11,10 +11,12 @@ class Admin extends Migration
         $this->forge->addField([
             'id_admin' => [
                 'type'           => 'INT',
-                'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'username' => [
+            'id_shop' => [
+                'type'           => 'INT',
+            ],
+            'email' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '200',
             ],
@@ -24,6 +26,7 @@ class Admin extends Migration
             ],
         ]);
         $this->forge->addKey('id_admin', true);
+        $this->forge->addForeignKey('id_shop','shop','id_shop');
         $this->forge->createTable('admin');
     }
 

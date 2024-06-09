@@ -4,27 +4,26 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Subscribe extends Migration
+class CategoryProduct extends Migration
 {
     public function up()
     {
         $this->forge->addField([
-            'id_subscribe' => [
+            'id_categoryProduct' => [
                 'type'           => 'INT',
-                'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'email' => [
+            'name_categoryProduct' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '200',
-            ],
+                'constraint' => '100',
+            ]
         ]);
-        $this->forge->addKey('id_subscribe', true);
-        $this->forge->createTable('subscribe');
+        $this->forge->addKey('id_categoryProduct', true);
+        $this->forge->createTable('categoryProduct');
     }
 
     public function down()
     {
-        $this->forge->dropTable('subscribe');
+        $this->forge->dropTable('categoryProduct');
     }
 }

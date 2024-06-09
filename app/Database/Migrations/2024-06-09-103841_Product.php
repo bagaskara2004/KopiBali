@@ -11,31 +11,32 @@ class Product extends Migration
         $this->forge->addField([
             'id_product' => [
                 'type'           => 'INT',
-                'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'id_admin' => [
+            'id_categoryProduct' => [
                 'type'           => 'INT',
-                'unsigned'       => true,
             ],
-            'title_product' => [
+            'id_shop' => [
+                'type'           => 'INT',
+            ],
+            'name_product' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '200',
             ],
-            'desc_product' => [
+            'description_product' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '200',
             ],
             'price_product' => [
                 'type'       => 'INT',
-                'unsigned'       => true,
             ],
-            'rekomended_product' => [
+            'recomended' => [
                 'type'       => 'BOOLEAN',
             ],
         ]);
         $this->forge->addKey('id_product', true);
-        $this->forge->addForeignKey('id_admin','admin','id_admin');
+        $this->forge->addForeignKey('id_shop', 'shop', 'id_shop');
+        $this->forge->addForeignKey('id_categoryProduct', 'categoryProduct', 'id_categoryProduct');
         $this->forge->createTable('product');
     }
 
