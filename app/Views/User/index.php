@@ -10,24 +10,12 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="/Asset/banner.png" class="d-block w-100 rounded" alt="...">
-                <div class="carousel-caption d-none d-md-block text-light">
-                    <h5>First slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
-                </div>
             </div>
             <div class="carousel-item">
                 <img src="/Asset/banner.png" class="d-block w-100 rounded" alt="...">
-                <div class="carousel-caption d-none d-md-block text-light">
-                    <h5>Second slide label</h5>
-                    <p>Some representative placeholder content for the second slide.</p>
-                </div>
             </div>
             <div class="carousel-item">
                 <img src="/Asset/banner.png" class="d-block w-100 rounded" alt="...">
-                <div class="carousel-caption d-none d-md-block text-light">
-                    <h5>Third slide label</h5>
-                    <p>Some representative placeholder content for the third slide.</p>
-                </div>
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
@@ -94,7 +82,7 @@
             <p class="fs-7">Loremolorum dolor necessitatibus quasi explicabo est? Labore provident necessitatibus tenetur eaque.</p>
         </div>
         <div class="rekomended-content mb-3">
-            <?php for ($i = 0; $i < 10; $i++) { ?>
+            <?php for ($i = 0; $i < 1; $i++) { ?>
                 <div class="card background-yellow border-0 me-3" style="min-width: 250px; width:250px;">
                     <img src="/Asset/coffee.png" class="card-img-top" alt="...">
                     <div class="card-body position-relative p-2">

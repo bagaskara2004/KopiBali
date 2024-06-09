@@ -19,7 +19,7 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid mt-1">
       <a class="navbar-brand ms-5" href="/">
-        <img src="/Login/img/logo.png" alt="Logo" loading="lazy" />
+        <img src="/Login/img/logo.png" alt="Logo" loading="lazy"/>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,16 +28,16 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item me-4">
-            <a class="nav-link active" aria-current="page" href="#HOME">HOME</a>
+            <a class="nav-link active" aria-current="page" href="/">HOME</a>
           </li>
           <li class="nav-item me-4">
-            <a class="nav-link" href="#ABOUTUS">ABOUT US</a>
+            <a class="nav-link" href="/about">ABOUT US</a>
           </li>
           <li class="nav-item me-4">
-            <a class="nav-link" href="#PRODUK">PRODUK</a>
+            <a class="nav-link" href="/product">PRODUK</a>
           </li>
           <li class="nav-item" style="margin-right: 145px;">
-            <a class="nav-link" href="#LOGIN">LOGIN</a>
+            <a class="nav-link" href="/auth">LOGIN</a>
           </li>
         </ul>
       </div>
