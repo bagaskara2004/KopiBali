@@ -4,10 +4,10 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Subscribe extends Model
+class Media extends Model
 {
-    protected $table            = 'subscribe';
-    protected $primaryKey       = 'id_subscribe';
+    protected $table            = 'media';
+    protected $primaryKey       = 'id_media';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;

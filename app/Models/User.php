@@ -4,10 +4,10 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class PhotoProduct extends Model
+class User extends Model
 {
-    protected $table            = 'photoproduct';
-    protected $primaryKey       = 'id_photoProduct';
+    protected $table            = 'user';
+    protected $primaryKey       = 'id_user';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
