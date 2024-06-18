@@ -46,11 +46,12 @@
         }
     </style>
 </head>
+
 <div class="navbar">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid d-flex justify-content-center"> <!-- Tambahkan justify-content-center -->
+        <a href="/admin" class="container-fluid d-flex justify-content-center">
             <img src="/Asset/logocoffeeadmin.png" class="w-50 h-50 rounded" alt="...">
-        </div>
+        </a>
     </nav>
         <div class="col py-3">
             <button class="btn btn-outline-primary d-sm-none" id="sidebarToggle">
@@ -70,7 +71,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link px-0 align-middle">
+                        <a href="/productlist" class="nav-link px-0 align-middle">
                             <i class="bi bi-bag-fill fs-3"></i> <span class="ms-1 d-none d-sm-inline">Product</span></a>
                     </li>
                     <li>
@@ -105,8 +106,7 @@
             </div>
         </div>
         <div class="col py-3">
-            <div id="contentOverlay" class="content-overlay"></div>
-            Content area...
+           <?= $this->renderSection('content') ?>
         </div>
     </div>
 </div>
@@ -124,7 +124,5 @@
         document.getElementById('contentOverlay').classList.remove('content-overlay-show');
     });
 </script>
-</body>
-</html>
 
 

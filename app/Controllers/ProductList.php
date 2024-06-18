@@ -2,10 +2,10 @@
 
 namespace App\Controllers;
 
-class Admin extends BaseController
+class ProductList extends BaseController
 {
     public function index(){
         $data['title'] = $this->title;
-        return view('Admin\admin.php', $data);
+        echo view('Admin\productList.php', $data);
     }
 }
