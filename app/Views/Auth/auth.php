@@ -46,9 +46,9 @@
 
   <!-- Login Section -->
   <section class="h-100 gradient-form">
-    <div class="container py-5 h-100">
+    <div class="container py-5 mt-5 h-100">
       <div class="row d-flex justify-content-center h-100 pt-5">
-        <div class="col-xl-11">
+        <div class="col-xl-12">
           <div class="row g-5">
             <div class="col-lg-6">
               <div class="card-body p-md-0 mx-md-4">
