@@ -12,10 +12,10 @@
 
     <style>
         .sidebar {
-            background-color: #f8f9fa; /* Warna latar belakang sidebar */
+            background-color: #ffffff; /* Warna latar belakang sidebar */
         }
 
-        @media (max-width: 575.98px) {
+        @media (max-width: 576px) {
             .sidebar {
                 position: absolute;
                 z-index: 1000;
@@ -79,11 +79,11 @@
                             <i class="bi bi-image-fill fs-3"></i> <span class="ms-1 d-none d-sm-inline">Galery</span></a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link px-0 align-middle">
+                        <a href="/promotion" class="nav-link px-0 align-middle">
                             <i class="bi bi-megaphone-fill fs-3"></i> <span class="ms-1 d-none d-sm-inline">Promotion</span></a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link px-0 align-middle">
+                        <a href="/subcription" class="nav-link px-0 align-middle">
                             <i class="bi bi-bell-fill fs-3"></i> <span class="ms-1 d-none d-sm-inline">Subciption</span>
                         </a>
                     </li>

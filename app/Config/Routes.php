@@ -11,4 +11,6 @@ $routes->get('/gallery', 'Gallery::index');
 $routes->get('/product', 'Product::index');
 $routes->get('/admin', 'Admin::index');
 $routes->get('/productlist', 'ProductList::index');
+$routes->get('/promotion', 'PromotionList::index');
+$routes->get('/subcription', 'SubcriptionList::index');
 $routes->get('/auth', 'Auth::index');
