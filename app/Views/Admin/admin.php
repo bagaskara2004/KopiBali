@@ -46,7 +46,7 @@
         }
     </style>
 </head>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <div class="navbar">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <a href="/admin" class="container-fluid d-flex justify-content-center">

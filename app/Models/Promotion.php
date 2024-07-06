@@ -12,7 +12,7 @@ class Promotion extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['id_shop', 'title_promotion', 'description_promotion', 'photo_promotion', 'start_date', 'end_date'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
