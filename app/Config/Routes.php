@@ -23,4 +23,7 @@ $routes->post('/promotionlist/save', 'PromotionList::save');
 $routes->post('/promotionlist/update', 'PromotionList::update');
 $routes->post('/promotionlist/delete', 'promotionlist::delete');
 $routes->get('/subcription', 'SubcriptionList::index');
+$routes->get('/subcriptionlist/getUser', 'SubcriptionList::getUser');
+$routes->post('/subcriptionlist/deleteUser', 'SubcriptionList::deleteUser');
 $routes->get('/auth', 'Auth::index');
+

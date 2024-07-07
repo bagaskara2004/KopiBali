@@ -1,12 +1,6 @@
 <?= $this->extend('Admin\admin') ?>
 <?= $this->section('content') ?>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- Bootstrap CSS -->
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
-<!-- Bootstrap Bundle with Popper -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
-
 
 <style>
     .img-fixed-size {

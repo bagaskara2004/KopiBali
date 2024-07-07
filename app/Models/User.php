@@ -12,7 +12,7 @@ class User extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['id_shop', 'email_user', 'date'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

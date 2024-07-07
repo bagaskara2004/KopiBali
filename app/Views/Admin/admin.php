@@ -9,10 +9,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         .sidebar {
-            background-color: #ffffff; /* Warna latar belakang sidebar */
+            background-color: #ffffff;
+            /* Warna latar belakang sidebar */
         }
 
         @media (max-width: 576px) {
@@ -53,11 +56,11 @@
             <img src="/Asset/logocoffeeadmin.png" class="w-50 h-50 rounded" alt="...">
         </a>
     </nav>
-        <div class="col py-3">
-            <button class="btn btn-outline-primary d-sm-none" id="sidebarToggle">
-                <i class="bi bi-list"></i></button>
-            <div id="contentOverlay" class="content-overlay"></div>
-        </div>
+    <div class="col py-3">
+        <button class="btn btn-outline-primary d-sm-none" id="sidebarToggle">
+            <i class="bi bi-list"></i></button>
+        <div id="contentOverlay" class="content-overlay"></div>
+    </div>
 </div>
 
 <div class="container-fluid">
@@ -87,6 +90,11 @@
                             <i class="bi bi-bell-fill fs-3"></i> <span class="ms-1 d-none d-sm-inline">Subciption</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="/subcription" class="nav-link px-0 align-middle">
+                            <i class="bi bi-bell-fill fs-3"></i> <span class="ms-1 d-none d-sm-inline">Category Product</span>
+                        </a>
+                    </li>
                 </ul>
                 <hr>
                 <div class="dropdown pb-4">
@@ -106,7 +114,7 @@
             </div>
         </div>
         <div class="col py-3">
-           <?= $this->renderSection('content') ?>
+            <?= $this->renderSection('content') ?>
         </div>
     </div>
 </div>
@@ -114,15 +122,13 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 <script>
-    document.getElementById('sidebarToggle').addEventListener('click', function () {
+    document.getElementById('sidebarToggle').addEventListener('click', function() {
         document.querySelector('.sidebar').classList.toggle('sidebar-show');
         document.getElementById('contentOverlay').classList.toggle('content-overlay-show');
     });
 
-    document.getElementById('contentOverlay').addEventListener('click', function () {
+    document.getElementById('contentOverlay').addEventListener('click', function() {
         document.querySelector('.sidebar').classList.remove('sidebar-show');
         document.getElementById('contentOverlay').classList.remove('content-overlay-show');
     });
 </script>
-
-
