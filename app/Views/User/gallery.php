@@ -1,13 +1,17 @@
 <?= $this->extend('Component/user.php') ?>
-<?= $this->section('Content') ?>
-<div class="container py-3">
-    <h4 class="text-gallery mt-3 mb-5">Gallery</h4>
-    <div class="list-gallery">
-        <?php for ($i = 0; $i < 7; $i++) { ?>
-            <div class="card background-yellow border-0 p-3" style="min-width: 200px; width:200px;">
-                <img src="Asset/gallery.png" class="card-img-top" alt="...">
-            </div>
-        <?php } ?>
+<?= $this->section('Banner') ?>
+<div class="container-xxl py-5 bg-dark hero-header mb-5">
+    <div class="container text-center my-5 pt-5 pb-4">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">Gallery</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center text-uppercase">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item text-white active" aria-current="page">Gallery</li>
+            </ol>
+        </nav>
     </div>
 </div>
+<?= $this->endSection() ?>
+<?= $this->section('Content') ?>
+<div class='sk-instagram-feed' data-embed-id='25434601'></div>
 <?= $this->endSection() ?>

@@ -1,177 +1,322 @@
 <?= $this->extend('Component/user.php') ?>
-<?= $this->section('Content') ?>
-<div class="container py-3">
-    <div id="carouselExampleCaptions" class="carousel slide">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="/Asset/banner.png" class="d-block w-100 rounded" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="/Asset/banner.png" class="d-block w-100 rounded" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="/Asset/banner.png" class="d-block w-100 rounded" alt="...">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
 
-    <div class="d-flex justify-content-evenly my-4">
-        <div class=" text-center p-2">
-            <h5>30</h5>
-            <p>Coffee variant</p>
-        </div>
-        <div class="vr my-4"></div>
-        <div class=" text-center p-2">
-            <h5>20</h5>
-            <p>Meeting Room</p>
-        </div>
-        <div class="vr my-4"></div>
-        <div class=" text-center p-2">
-            <h5>25</h5>
-            <p>Event Space</p>
-        </div>
-    </div>
-
-    <div id="choose-us" class="rounded text-light background-black d-flex flex-column align-items-center text-center p-4">
-        <h4 class="pt-5">Why choose us?</h4>
-        <p class="fs-7 w-75 mt-3">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione, qui.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos a corporis id sunt? Corrupti autem reprehenderit dignissimos exercitationem aut?
-        </p>
-        <div class="row w-100 service">
-            <div class="col-12 col-md-4 mb-2">
-                <div class="background-brown rounded p-3">
-                    <i class="bi bi-cup-hot-fill fs-2"></i>
-                    <h5>Best Quality</h5>
-                    <p class="fs-7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, sequi!</p>
-                </div>
+<?= $this->section('Banner') ?>
+<div class="container-xxl py-5 bg-dark hero-header mb-5">
+    <div class="container my-5 py-5">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6 text-center text-lg-start">
+                <h1 class="display-3 text-white animated slideInLeft">Great Coffee<br>made simple</h1>
+                <p class="text-white animated slideInLeft mb-4 pb-2">Start your mornings with the worlds best coffees. Try our expertly curated artisan coffees from our best roasters delivered directly to your door, at your schedule.</p>
+                <a href="/about" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">ABOUT US</a>
             </div>
-            <div class="col-12 col-md-4 mb-2">
-                <div class="background-brown rounded p-3">
-                    <i class="bi bi-cup-hot-fill fs-2 mb-5"></i>
-                    <h5>Best Quality</h5>
-                    <p class="fs-7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, sequi!</p>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 mb-2">
-                <div class="background-brown rounded p-3">
-                    <i class="bi bi-cup-hot-fill fs-2"></i>
-                    <h5>Best Quality</h5>
-                    <p class="fs-7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, sequi!</p>
-                </div>
+            <div class="col-lg-6 text-center text-lg-end overflow-hidden">
+                <img class="img-fluid" src="img/hero.png" alt="">
             </div>
         </div>
     </div>
-
-    <div id="rekomended">
-        <div class="rekomended-title mb-4">
-            <h4>RECOMMENDED</h4>
-            <p class="fs-7">Loremolorum dolor necessitatibus quasi explicabo est? Labore provident necessitatibus tenetur eaque.</p>
-        </div>
-        <div class="rekomended-content mb-3">
-            <?php for ($i = 0; $i < 1; $i++) { ?>
-                <div class="card background-yellow border-0 me-3" style="min-width: 250px; width:250px;">
-                    <img src="/Asset/coffee.png" class="card-img-top" alt="...">
-                    <div class="card-body position-relative p-2">
-                        <div class="d-flex justify-content-between">
-                            <p class="card-title text-dark fs-7 fw-medium text-break">Capucino</p>
-                            <p class="card-text fs-7 text-dark">RP.20.000</p>
-                        </div>
-                        <a href="#" class="button-primary w-100">Detail</a>
-                    </div>
-                </div>
-            <?php } ?>
-        </div>
-    </div>
-
-
-    <div id="review">
-        <div class="review-title mb-4">
-            <h4>What our buyers say</h4>
-            <p class="fs-7">Loremolorum dolor necessitatibus quasi explicabo est? Labore provident necessitatibus tenetur eaque.</p>
-        </div>
-        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="card mb-3" style="max-width: 100rem;">
-                        <div class="card-header d-flex align-items-center">
-                            <img src="/Asset/profil.png" class="d-block rounded-circle me-2">
-                            <div>
-                                <h6>Bagaskara</h6>
-                                <div>
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Comment :</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="card mb-3" style="max-width: 100rem;">
-                        <div class="card-header d-flex align-items-center">
-                            <img src="/Asset/profil.png" class="d-block rounded-circle me-2">
-                            <div>
-                                <h6>Daus</h6>
-                                <div>
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Comment :</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="card mb-3" style="max-width: 100rem;">
-                        <div class="card-header d-flex align-items-center">
-                            <img src="/Asset/profil.png" class="d-block rounded-circle me-2">
-                            <div>
-                                <h6>Jokowi</h6>
-                                <div>
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Comment :</h5>
-                            <p class="card-text">Some Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis assumenda sit quia architecto nihil officiis possimus eveniet amet, nostrum ullam sequi illo quibusdam voluptate eum magnam corrupti, ab rerum saepe!quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
 </div>
+<?= $this->endSection() ?>
+
+<?= $this->section('Content') ?>
+<!-- Service Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item rounded pt-3">
+                    <div class="p-4">
+                        <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
+                        <h5>Convenient Place</h5>
+                        <p>a comfortable place to drink coffee and relax after a tired day</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item rounded pt-3">
+                    <div class="p-4">
+                        <i class="fa fa-3x fa-coffee text-primary mb-4"></i>
+                        <h5>Quality Coffee</h5>
+                        <p>We have high quality coffee and use the best choice of coffee beans</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="service-item rounded pt-3">
+                    <div class="p-4">
+                        <i class="fa fa-3x fa-money-bill text-primary mb-4"></i>
+                        <h5>Cheap Prices</h5>
+                        <p>The price of coffee here is quite cheap compared to other shops</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="service-item rounded pt-3">
+                    <div class="p-4">
+                        <i class="fa fa-3x fa-headset text-primary mb-4"></i>
+                        <h5>Good Service</h5>
+                        <p>We will always provide the best and fastest service to our customers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Service End -->
+
+<!-- About Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6">
+                <div class="row g-3">
+                    <div class="col-6 text-start">
+                        <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="img/about-1.jpg">
+                    </div>
+                    <div class="col-6 text-start">
+                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.3s" src="img/about-2.jpeg" style="margin-top: 25%;">
+                    </div>
+                    <div class="col-6 text-end">
+                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.5s" src="img/about-3.jpeg">
+                    </div>
+                    <div class="col-6 text-end">
+                        <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.7s" src="img/about-4.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h5 class="section-title ff-secondary text-start text-primary fw-normal">About Us</h5>
+                <h1 class="mb-4">Welcome to <img src="img/logo-dark.png" alt=""></h1>
+                <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos erat ipsum et lorem et sit, sed stet lorem sit.</p>
+                <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                <div class="row g-4 mb-4">
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-center border-start border-5 border-primary px-3">
+                            <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">15</h1>
+                            <div class="ps-4">
+                                <p class="mb-0">Years of</p>
+                                <h6 class="text-uppercase mb-0">Experience</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-center border-start border-5 border-primary px-3">
+                            <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">50</h1>
+                            <div class="ps-4">
+                                <p class="mb-0">Popular</p>
+                                <h6 class="text-uppercase mb-0">Product</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="btn btn-primary py-3 px-5 mt-2" href="/about">Read More</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+<!-- Menu Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h5 class="section-title ff-secondary text-center text-primary fw-normal">Recomended</h5>
+            <h1 class="mb-5">Most Popular Coffee</h1>
+        </div>
+        <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
+            <div class="tab-content">
+                <div id="tab-1" class="tab-pane fade show p-0 active">
+                    <div class="row g-4">
+                        <div class="col-lg-6">
+                            <div class="d-flex align-items-center">
+                                <img class="flex-shrink-0 img-fluid rounded" src="img/menu-1.jpg" alt="" style="width: 80px;">
+                                <div class="w-100 d-flex flex-column text-start ps-4">
+                                    <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                        <span>Chicken Burger</span>
+                                        <span class="text-primary">$115</span>
+                                    </h5>
+                                    <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="d-flex align-items-center">
+                                <img class="flex-shrink-0 img-fluid rounded" src="img/menu-2.jpg" alt="" style="width: 80px;">
+                                <div class="w-100 d-flex flex-column text-start ps-4">
+                                    <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                        <span>Chicken Burger</span>
+                                        <span class="text-primary">$115</span>
+                                    </h5>
+                                    <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="d-flex align-items-center">
+                                <img class="flex-shrink-0 img-fluid rounded" src="img/menu-3.jpg" alt="" style="width: 80px;">
+                                <div class="w-100 d-flex flex-column text-start ps-4">
+                                    <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                        <span>Chicken Burger</span>
+                                        <span class="text-primary">$115</span>
+                                    </h5>
+                                    <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="d-flex align-items-center">
+                                <img class="flex-shrink-0 img-fluid rounded" src="img/menu-4.jpg" alt="" style="width: 80px;">
+                                <div class="w-100 d-flex flex-column text-start ps-4">
+                                    <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                        <span>Chicken Burger</span>
+                                        <span class="text-primary">$115</span>
+                                    </h5>
+                                    <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Menu End -->
+
+
+<!-- Reservation Start -->
+<div class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="row g-0">
+        <div class="col-md-6">
+            <div class="video"></div>
+        </div>
+        <div class="col-md-6 bg-dark d-flex align-items-center">
+            <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
+                <h5 class="section-title ff-secondary text-start text-primary fw-normal">SUBSCRIBE</h5>
+                <h1 class="text-white mb-4">Give Your Opinion</h1>
+                <form>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                <label for="name">Your Name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                <label for="email">Your Email</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
+                                <label for="message">Comment</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-primary w-100 py-3" type="submit">Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Reservation Start -->
+
+
+<!-- Team Start -->
+<div class="container-xxl pt-5 pb-3">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h5 class="section-title ff-secondary text-center text-primary fw-normal">Promotion</h5>
+            <h1 class="mb-5">Our Promotions</h1>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="team-item text-center rounded overflow-hidden">
+                    <div>
+                        <img class="img-fluid" src="img/promo1.jpeg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="team-item text-center rounded overflow-hidden">
+                    <div>
+                        <img class="img-fluid" src="img/promo2.jpeg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="team-item text-center rounded overflow-hidden">
+                    <div>
+                        <img class="img-fluid" src="img/promo3.jpeg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="team-item text-center rounded overflow-hidden">
+                    <div>
+                        <img class="img-fluid" src="img/promo4.jpeg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Team End -->
+
+
+<!-- Testimonial Start -->
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="text-center">
+            <h5 class="section-title ff-secondary text-center text-primary fw-normal">Testimonial</h5>
+            <h1 class="mb-5">Our Clients Say!!!</h1>
+        </div>
+        <div class="owl-carousel testimonial-carousel">
+            <div class="testimonial-item bg-transparent border rounded p-4">
+                <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
+                <div class="d-flex align-items-center">
+                    <div class="ps-3">
+                        <h5 class="mb-1">Client Name</h5>
+                        <small>20/11/2024</small>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-item bg-transparent border rounded p-4">
+                <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
+                <div class="d-flex align-items-center">
+                    <div class="ps-3">
+                        <h5 class="mb-1">Client Name</h5>
+                        <small>20/11/2024</small>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-item bg-transparent border rounded p-4">
+                <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
+                <div class="d-flex align-items-center">
+                    <div class="ps-3">
+                        <h5 class="mb-1">Client Name</h5>
+                        <small>20/11/2024</small>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-item bg-transparent border rounded p-4">
+                <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
+                <div class="d-flex align-items-center">
+                    <div class="ps-3">
+                        <h5 class="mb-1">Client Name</h5>
+                        <small>20/11/2024</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonial End -->
 <?= $this->endSection() ?>

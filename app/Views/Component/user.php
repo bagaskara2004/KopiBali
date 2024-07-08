@@ -2,107 +2,145 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- style -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/Style/user.css">
-    <!-- icon -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- font -->
+    <meta charset="utf-8">
+    <title><?= $title ?></title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <title><?= $title ?></title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body data-bs-theme="light">
-    <nav class="navbar navbar-expand-lg bg-body shadow position-sticky top-0 z-3">
-        <div class="container d-flex justify-content-between">
-            <div class="d-flex">
-                <button type="button" class="button-icon mx-1" id="btnNavbar"><i class="bi  bi-list fs-4"></i></button>
-                <a class="navbar-brand" href="#">Coffee</a>
-            </div>
-            <div class="d-flex justify-content-end">
-                <div class="vr my-2"></div>
-                <button type="button" class="button-icon mx-1" id="tema"><i class="bi bi-sun-fill"></i></button>
-                <a href="/auth" class="button-primary">Login</a>
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
             </div>
         </div>
-        <div class="container d-none shadow" id="navbar-link">
-            <ul class="navbar-nav flex-column">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/product">Product</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Promotion</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/gallery">Gallery</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/admin">Tombol Sementara Ke Admin</a>
-                </li>
-            </ul>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar & Hero Start -->
+        <div class="container-xxl position-relative p-0">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+                <a href="" class="navbar-brand p-0">
+                    <!-- <h1 class="text-primary m-0"><i class="fa fa-utensils me-3"></i>Restoran</h1> -->
+                    <img src="img/logo.png" alt="Logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0 pe-4">
+                        <?= $navbar ?>
+                    </div>
+                    <a href="/auth" class="btn btn-primary py-2 px-4">Login</a>
+                </div>
+            </nav>
+            <?= $this->renderSection('Banner') ?>
         </div>
-    </nav>
+        <!-- Navbar & Hero End -->
 
-    <?= $this->renderSection('Content') ?>
-
-    <footer>
-        <div class="container py-5 footer-content">
-            <div class="subscribe-title text-light">
-                <h4>Subscribe Email</h4>
-                <p class="fs-7">to find out the latest information on this website</p>
-            </div>
-            <form action="/" method="post" class="d-flex w-75 mb-5">
-                <input type="email" placeholder="Input Email" class="w-100 px-3 bg-light border-0 text-dark">
-                <button type="submit" class="button-primary ms-1">Submit</button>
-            </form>
-            <div class="row w-100">
-                <div class="col-12 col-md-4 text-center">
-                    <div class="card background-black mb-3 border-0">
-                        <div class="card-header border-0 text-light background-gray">Coffee</div>
-                        <div class="card-body">
-                            <p class="card-text text-light">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <!-- Content -->
+        <?= $this->renderSection('Content') ?>
+        <!-- End Content -->
+        <!-- Footer Start -->
+        <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Company</h4>
+                        <a class="btn btn-link" href="/about">About Us</a>
+                        <a class="btn btn-link" href="/product">Product</a>
+                        <a class="btn btn-link" href="/gallery">Gallery</a>
+                        <a class="btn btn-link" href="">Privacy Policy</a>
+                        <a class="btn btn-link" href="">Terms & Condition</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-4 text-center">
-                    <div class="card background-black mb-3 border-0">
-                        <div class="card-header border-0 text-light background-gray">Contact</div>
-                        <div class="card-body text-light">
-                            <i class="bi bi-whatsapp fs-3 m-2"></i>
-                            <i class="bi bi-instagram fs-3 m-2"></i>
-                            <i class="bi bi-facebook fs-3 m-2"></i>
-                        </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Opening</h4>
+                        <h5 class="text-light fw-normal">Monday - Saturday</h5>
+                        <p>09AM - 09PM</p>
+                        <h5 class="text-light fw-normal">Sunday</h5>
+                        <p>10AM - 08PM</p>
                     </div>
-                </div>
-                <div class="col-12 col-md-4 text-center">
-                    <div class="card background-black border-0">
-                        <div class="card-header border-0 text-light background-gray">Location</div>
-                        <div class="card-body text-light">
-                            <p class="card-text">
-                                <i class="bi bi-geo-alt-fill"></i>
-                                jalan pengangguran
-                            </p>
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3942.8527291037726!2d115.15971477501627!3d-8.799903491252605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd244c13ee9d753%3A0x6c05042449b50f81!2sPoliteknik%20Negeri%20Bali!5e0!3m2!1sid!2sid!4v1715525729745!5m2!1sid!2sid" width="200" height="100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Location</h4>
+                        <div class="position-relative mx-auto" style="max-width: 400px;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3942.859497870158!2d115.16026357321479!3d-8.799268089959895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd244c0e798b329%3A0x928f38fe0d70a8fc!2sPolteknik%20Negeri%20Bali%2C%20Jimbaran%2C%20Kec.%20Kuta%20Sel.%2C%20Kabupaten%20Badung%2C%20Bali!5e0!3m2!1sid!2sid!4v1720100132667!5m2!1sid!2sid" width="200" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="container">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-12 text-center  mb-3 mb-md-0">
+                            &copy; <a class="border-bottom" href="#">Cofeeroasters</a>, All Right Reserved. 
+							
+							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+							Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="fs-7 text-light background-brown p-3 text-center">Copyright 2024 All Right Reserved</div>
-    </footer>
+        <!-- Footer End -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/Script/user.js"></script>
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src='https://widgets.sociablekit.com/instagram-feed/widget.js' asyncdefer></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
 </body>
 
 </html>
