@@ -22,6 +22,7 @@ use Psr\Log\LoggerInterface;
 abstract class BaseController extends Controller
 {
     protected $title = 'Coffee';
+    protected $encrypter;
     /**
      * Instance of the main Request object.
      *
@@ -50,6 +51,7 @@ abstract class BaseController extends Controller
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
     {
         // Do Not Edit This Line
+        $this->encrypter = \Config\Services::encrypter();
         parent::initController($request, $response, $logger);
 
         // Preload any models, libraries, etc, here.
