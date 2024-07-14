@@ -25,10 +25,6 @@ class Shop extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => '200',
             ],
-            'logo' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '200',
-            ],
             'telp' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '200',
