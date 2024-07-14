@@ -13,21 +13,43 @@ class Shop extends Migration
                 'type'           => 'INT',
                 'auto_increment' => true,
             ],
-            'description_shop' => [
+            'name' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '200',
             ],
-            'address_shop' => [
+            'email' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '200',
             ],
-            'location_shop' => [
+            'address' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '200',
             ],
-            'logo_shop' => [
+            'logo' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '200',
+            ],
+            'telp' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '200',
+            ],
+            'maps' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '200',
+            ],
+            'password' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '200',
+            ],
+            'gallery' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '200',
+            ],
+            'open' => [
+                'type'       => 'TIME',
+            ],
+            'close' => [
+                'type'       => 'TIME',
             ],
         ]);
         $this->forge->addKey('id_shop', true);
