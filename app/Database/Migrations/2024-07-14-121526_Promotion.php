@@ -29,10 +29,10 @@ class Promotion extends Migration
                 'constraint' => '200',
             ],
             'start_date' => [
-                'type'       => 'DATE',
+                'type'       => 'DATETIME',
             ],
             'end_date' => [
-                'type'       => 'DATE',
+                'type'       => 'DATETIME',
             ],
         ]);
         $this->forge->addKey('id_promotion', true);

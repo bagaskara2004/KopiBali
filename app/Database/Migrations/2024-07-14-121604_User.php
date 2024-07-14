@@ -10,8 +10,8 @@ class User extends Migration
     {
         $this->forge->addField([
             'email' => [
-                'type'           => 'INT',
-                'auto_increment' => true,
+                'type'           => 'VARCHAR',
+                'constraint' => '200',
             ],
             'id_shop' => [
                 'type'           => 'INT',
@@ -28,7 +28,7 @@ class User extends Migration
                 'type'       => 'BOOLEAN',
             ],
             'date' => [
-                'type'       => 'DATE',
+                'type'       => 'DATETIME',
             ]
         ]);
         $this->forge->addKey('email', true);

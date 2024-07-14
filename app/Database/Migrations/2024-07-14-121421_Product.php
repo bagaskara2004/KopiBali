@@ -33,6 +33,15 @@ class Product extends Migration
             'recomended' => [
                 'type'       => 'BOOLEAN',
             ],
+            'created_at' => [
+                'type'       => 'DATETIME',
+            ],
+            'updated_at' => [
+                'type'       => 'DATETIME',
+            ],
+            'deleted_at' => [
+                'type'       => 'DATETIME',
+            ],
         ]);
         $this->forge->addKey('id_product', true);
         $this->forge->addForeignKey('id_shop', 'shop', 'id_shop');
