@@ -9,6 +9,7 @@ class Shop extends Seeder
 {
     public function run()
     {
+        $shopModel = new \App\Models\Shop();
         $encrypter = \Config\Services::encrypter();
         $data = [
             'name' => $encrypter->encrypt('coffeeroasters'),
@@ -21,6 +22,6 @@ class Shop extends Seeder
             'open' => date('H:i', strtotime('10:00')),
             'close' => date('H:i', strtotime('12:00'))
         ];
-        $this->db->table('shop')->insertBatch($data);
+        $shopModel->save($data);
     }
 }
