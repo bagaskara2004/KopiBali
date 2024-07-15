@@ -18,6 +18,13 @@ class PromotionList extends BaseController
         $promotions = $promotionModel->findAll();
         return $this->response->setJSON(['promotions' => $promotions]);
     }
+    public function getPromotion($id)
+    {
+        $promotionModel = new Promotion();
+        $promotion = $promotionModel->find($id);
+
+        return $this->response->setJSON($promotion);
+    }
 
     public function save()
     {
@@ -48,6 +55,7 @@ class PromotionList extends BaseController
             'description_promotion' => $this->request->getPost('description_promotion'),
             'start_date' => $this->request->getPost('start_date'),
             'end_date' => $this->request->getPost('end_date'),
+            'id_shop' => $this->request->getPost('id_shop'),
         ];
 
         $promotionModel->update($id, $data);
@@ -61,6 +69,6 @@ class PromotionList extends BaseController
         $id = $this->request->getPost('id_promotion');
         $promotionModel->delete($id);
 
-        return $this->response->setJSON(['status' => 'Product deleted']);
+        return $this->response->setJSON(['status' => 'Promotion deleted']);
     }
 }

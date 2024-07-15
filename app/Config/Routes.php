@@ -25,5 +25,14 @@ $routes->post('/promotionlist/delete', 'promotionlist::delete');
 $routes->get('/subcription', 'SubcriptionList::index');
 $routes->get('/subcriptionlist/getUser', 'SubcriptionList::getUser');
 $routes->post('/subcriptionlist/deleteUser', 'SubcriptionList::deleteUser');
-$routes->get('/auth', 'Auth::index');
+$routes->get('/cproduct', 'CProduct::index');
+$routes->get('/cproduct/getCategories', 'CProduct::getCategories');
+$routes->get('/cproduct/getCategory/(:num)', 'CProduct::getCategory/$1');
+$routes->post('/cproduct/save', 'CProduct::save');
+$routes->post('/cproduct/update', 'CProduct::update');
+$routes->post('/cproduct/delete', 'CProduct::delete');
+$routes->get('/shoplist', 'ShopList::index');
+$routes->get('/shoplist/getShops', 'ShopList::getShops');
+$routes->post('/shoplist/save', 'ShopList::save');
 
+$routes->get('/auth', 'Auth::index');
