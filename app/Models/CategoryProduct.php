@@ -8,6 +8,7 @@ class CategoryProduct extends Model
 {
     protected $table            = 'categoryproduct';
     protected $primaryKey       = 'id_categoryProduct';
+    protected $allowedFields    = ['name_categoryProduct'];
 
     public function __construct()
     {

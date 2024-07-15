@@ -8,6 +8,7 @@ class CategoryMedia extends Model
 {
     protected $table            = 'categorymedia';
     protected $primaryKey       = 'id_categoryMedia';
+    protected $allowedFields    = ['name_categoryMedia','icon_categoryMedia'];
 
     public function __construct()
     {

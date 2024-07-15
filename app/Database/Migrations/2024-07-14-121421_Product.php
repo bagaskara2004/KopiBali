@@ -34,13 +34,16 @@ class Product extends Migration
                 'type'       => 'BOOLEAN',
             ],
             'created_at' => [
-                'type'       => 'DATETIME',
+                'type'       => 'datetime',
+                'null'       => True
             ],
             'updated_at' => [
-                'type'       => 'DATETIME',
+                'type'       => 'datetime',
+                'null'       => True
             ],
             'deleted_at' => [
-                'type'       => 'DATETIME',
+                'type'       => 'datetime',
+                'null'       => True
             ],
         ]);
         $this->forge->addKey('id_product', true);

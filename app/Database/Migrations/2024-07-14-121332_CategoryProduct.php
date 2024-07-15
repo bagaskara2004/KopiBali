@@ -15,7 +15,7 @@ class CategoryProduct extends Migration
             ],
             'name_categoryProduct' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '100',
+                'constraint' => '200',
             ]
         ]);
         $this->forge->addKey('id_categoryProduct', true);

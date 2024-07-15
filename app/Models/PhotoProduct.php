@@ -8,6 +8,7 @@ class PhotoProduct extends Model
 {
     protected $table            = 'photoproduct';
     protected $primaryKey       = 'id_photoProduct';
+    protected $allowedFields    = ['id_product','photo_product'];
 
     public function __construct()
     {
