@@ -12,4 +12,5 @@ class Shop extends Model
     {
         parent::__construct();
     }
+    
 }

@@ -23,6 +23,8 @@ abstract class BaseController extends Controller
 {
     protected $title = 'Coffee';
     protected $encrypter;
+    protected $shopModel;
+    protected $dataShop;
     /**
      * Instance of the main Request object.
      *
@@ -51,11 +53,25 @@ abstract class BaseController extends Controller
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
     {
         // Do Not Edit This Line
-        $this->encrypter = \Config\Services::encrypter();
         parent::initController($request, $response, $logger);
 
         // Preload any models, libraries, etc, here.
+        $this->shopModel = new \App\Models\Shop();
+        $this->encrypter = \Config\Services::encrypter();
 
+        $data = $this->shopModel->first();
+        $this->dataShop = [
+            'id_shop' => $data['id_shop'],
+            'name' => $this->encrypter->decrypt($data['name']),
+            'email' => $this->encrypter->decrypt($data['email']),
+            'address' => $this->encrypter->decrypt($data['address']),
+            'telp' => $this->encrypter->decrypt($data['telp']),
+            'maps' => $data['maps'],
+            'password' => $this->encrypter->decrypt($data['password']),
+            'gallery' => $this->encrypter->decrypt($data['gallery']),
+            'open' => $data['open'],
+            'close' => $data['close'],
+        ];
         // E.g.: $this->session = \Config\Services::session();
     }
 }

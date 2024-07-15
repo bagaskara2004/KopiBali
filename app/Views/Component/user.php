@@ -80,9 +80,9 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
-                        <p class="mb-2"><i class="fa fa-map-marker me-3"></i>123 Street, New York, USA</p>
-                        <p class="mb-2"><i class="fa fa-phone me-3"></i>+012 345 67890</p>
-                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                        <p class="mb-2"><i class="fa fa-map-marker me-3"></i><?= $dataShop['address'] ?></p>
+                        <p class="mb-2"><i class="fa fa-phone me-3"></i><?= $dataShop['telp'] ?></p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i><?= $dataShop['email'] ?></p>
                         <div class="d-flex pt-2">
                             <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
@@ -93,12 +93,12 @@
                     <div class="col-lg-3 col-md-6">
                         <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Opening</h4>
                         <h5 class="text-light fw-normal">Open - Close</h5>
-                        <p>09AM - 09PM</p>
+                        <p><?= $dataShop['open'] ?> - <?= $dataShop['close'] ?></p>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Location</h4>
                         <div class="position-relative mx-auto" style="max-width: 400px;">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3942.859497870158!2d115.16026357321479!3d-8.799268089959895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd244c0e798b329%3A0x928f38fe0d70a8fc!2sPolteknik%20Negeri%20Bali%2C%20Jimbaran%2C%20Kec.%20Kuta%20Sel.%2C%20Kabupaten%20Badung%2C%20Bali!5e0!3m2!1sid!2sid!4v1720100132667!5m2!1sid!2sid" width="200" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="<?=$dataShop['maps']?>" width="200" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>
@@ -107,7 +107,7 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-12 text-center  mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">Cofeeroasters</a>, All Right Reserved. 
+                            &copy; <a class="border-bottom" href="#"><?= $dataShop['name'] ?></a>, All Right Reserved. 
 							
 							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
 							Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>

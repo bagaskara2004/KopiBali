@@ -13,5 +13,5 @@
 </div>
 <?= $this->endSection() ?>
 <?= $this->section('Content') ?>
-<div class='sk-instagram-feed' data-embed-id='25434601'></div>
+<div class='sk-instagram-feed' data-embed-id='<?=$dataShop['gallery']?>'></div>
 <?= $this->endSection() ?>
