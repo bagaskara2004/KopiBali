@@ -8,7 +8,7 @@ class Product extends Model
 {
     protected $table            = 'product';
     protected $primaryKey       = 'id_product';
-    protected $allowedFields    = ['id_categoryProduct', 'id_shop', 'name_product', 'description_product', 'price_product','recomended'];
+    protected $allowedFields    = ['id_categoryProduct', 'id_shop', 'name_product', 'description_product','photo_product', 'price_product','recomended'];
     // Dates
     protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
