@@ -23,8 +23,14 @@ abstract class BaseController extends Controller
 {
     protected $title = 'Coffee';
     protected $encrypter;
-    protected $shopModel;
     protected $dataShop;
+    protected $shopModel;
+    protected $categoryProductModel;
+    protected $categoryMediaModel;
+    protected $mediaModel;
+    protected $productModel;
+    protected $promotionModel;
+    protected $userModel;
     /**
      * Instance of the main Request object.
      *
@@ -57,6 +63,12 @@ abstract class BaseController extends Controller
 
         // Preload any models, libraries, etc, here.
         $this->shopModel = new \App\Models\Shop();
+        $this->categoryMediaModel = new \App\Models\CategoryMedia();
+        $this->categoryProductModel = new \App\Models\CategoryProduct();
+        $this->mediaModel = new \App\Models\Media();
+        $this->productModel = new \App\Models\Product();
+        $this->promotionModel = new \App\Models\Promotion();
+        $this->userModel = new \App\Models\User();
         $this->encrypter = \Config\Services::encrypter();
 
         $data = $this->shopModel->first();
