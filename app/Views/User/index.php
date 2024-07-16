@@ -234,46 +234,21 @@
             <h1 class="mb-5">Our Clients Say!!!</h1>
         </div>
         <div class="owl-carousel testimonial-carousel">
+
+        <?php foreach ($comments as $data) {
+            if ($data['post'] == True) {?>
             <div class="testimonial-item bg-transparent border rounded p-4">
                 <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
+                <p><?= $data['comment'] ?></p>
                 <div class="d-flex align-items-center">
                     <div class="ps-3">
-                        <h5 class="mb-1">Client Name</h5>
-                        <small>20/11/2024</small>
+                        <h5 class="mb-1"><?= $data['name'] ?></h5>
+                        <small><?= $data['date'] ?></small>
                     </div>
                 </div>
             </div>
-            <div class="testimonial-item bg-transparent border rounded p-4">
-                <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
-                <div class="d-flex align-items-center">
-                    <div class="ps-3">
-                        <h5 class="mb-1">Client Name</h5>
-                        <small>20/11/2024</small>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-item bg-transparent border rounded p-4">
-                <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
-                <div class="d-flex align-items-center">
-                    <div class="ps-3">
-                        <h5 class="mb-1">Client Name</h5>
-                        <small>20/11/2024</small>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-item bg-transparent border rounded p-4">
-                <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
-                <div class="d-flex align-items-center">
-                    <div class="ps-3">
-                        <h5 class="mb-1">Client Name</h5>
-                        <small>20/11/2024</small>
-                    </div>
-                </div>
-            </div>
+        <?php }} ?>
+            
         </div>
     </div>
 </div>

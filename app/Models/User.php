@@ -30,6 +30,24 @@ class User extends Model
         }
         return $exist;
     }
+    
+    public function getAllUser() {
+        $users = $this->findAll();
+        $results = [];
+        foreach ($users as $user) {
+            $results[] = [
+                'id_user' => $user['id_user'],
+                'id_shop' => $user['id_shop'],
+                'email' => $this->encrypter->decrypt($user['email']),
+                'name' => $this->encrypter->decrypt($user['name']),
+                'comment' => $this->encrypter->decrypt($user['comment']),
+                'post' => $user['post'],
+                'date' => $user['date']
+            ];
+        }
+        return $results;
+    }
+
     public function addUser($nama,$email,$comment)
     {
         $data = [

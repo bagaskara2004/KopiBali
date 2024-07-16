@@ -24,7 +24,7 @@ class Product extends Model
     }
 
     public function getAllProduct() {
-        $datas = $datas = $this->select('product.*,categoryproduct.*')->join('categoryproduct','product.id_categoryProduct = categoryproduct.id_categoryProduct')->findAll();;
+        $datas = $this->select('product.*,categoryproduct.*')->join('categoryproduct','product.id_categoryProduct = categoryproduct.id_categoryProduct')->findAll();;
         $results = [];
         foreach ($datas as $data) {
             $results[] = [
