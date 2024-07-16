@@ -98,7 +98,7 @@
                     <div class="col-lg-3 col-md-6">
                         <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Location</h4>
                         <div class="position-relative mx-auto" style="max-width: 400px;">
-                        <iframe src="<?=$dataShop['maps']?>" width="200" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe src="<?= $dataShop['maps'] ?>" width="200" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>
@@ -107,10 +107,10 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-12 text-center  mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#"><?= $dataShop['name'] ?></a>, All Right Reserved. 
-							
-							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-							Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                            &copy; <a class="border-bottom" href="#"><?= $dataShop['name'] ?></a>, All Right Reserved.
+
+                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                            Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
                         </div>
                     </div>
                 </div>
@@ -121,6 +121,22 @@
 
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+        
+        <div class="position-fixed bottom-0 start-0">
+            <?php if (session()->getFlashdata('erorr')) { ?>
+                <div class="alert alert-danger alert-dismissible fade show m-1" role="alert">
+                    <small><?= session()->getFlashdata('erorr') ?></small>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php } ?>
+            <?php if (session()->getFlashdata('success')) { ?>
+                <div class="alert alert-success alert-dismissible fade show m-1" role="alert">
+                    <small><?= session()->getFlashdata('success') ?></small>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php } ?>
+        </div>
+        
     </div>
 
     <!-- JavaScript Libraries -->

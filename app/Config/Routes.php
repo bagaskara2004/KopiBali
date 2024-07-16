@@ -34,5 +34,6 @@ $routes->post('/cproduct/delete', 'CProduct::delete');
 $routes->get('/shoplist', 'ShopList::index');
 $routes->get('/shoplist/getShops', 'ShopList::getShops');
 $routes->post('/shoplist/save', 'ShopList::save');
+$routes->post('/user', 'Home::user');
 
 $routes->get('/auth', 'Auth::index');

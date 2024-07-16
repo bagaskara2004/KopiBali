@@ -93,8 +93,8 @@ class Product extends Seeder
                 'recomended' => True
             ],
         ];
-        for ($i=0; $i < 9; $i++) { 
-            $productModel->save($data[$i]);
+        foreach ($data as $product) {
+            $productModel->save($product);
         }
     }
 }

@@ -9,12 +9,16 @@ class User extends Migration
     public function up()
     {
         $this->forge->addField([
-            'email' => [
-                'type'           => 'VARCHAR',
-                'constraint' => '200',
+            'id_user' => [
+                'type'       => 'INT',
+                'auto_increment' => true,
             ],
             'id_shop' => [
-                'type'           => 'INT',
+                'type'       => 'INT',
+            ],
+            'email' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '200',
             ],
             'name' => [
                 'type'       => 'VARCHAR',
@@ -28,10 +32,11 @@ class User extends Migration
                 'type'       => 'BOOLEAN',
             ],
             'date' => [
-                'type'       => 'DATETIME',
-            ]
+                'type'       => 'datetime',
+                'null'       => True
+            ],
         ]);
-        $this->forge->addKey('email', true);
+        $this->forge->addKey('id_user', true);
         $this->forge->addForeignKey('id_shop', 'shop', 'id_shop');
         $this->forge->createTable('user');
     }

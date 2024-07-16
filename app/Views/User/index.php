@@ -152,23 +152,23 @@
             <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
                 <h5 class="section-title ff-secondary text-start text-primary fw-normal">SUBSCRIBE</h5>
                 <h1 class="text-white mb-4">Give Your Opinion</h1>
-                <form>
+                <form method="post" action="/user">
                     <div class="row g-3">
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                <input type="text" class="form-control" id="name" placeholder="Your Name" name="name">
                                 <label for="name">Your Name</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                <input type="email" class="form-control" id="email" placeholder="Your Email" name="email">
                                 <label for="email">Your Email</label>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-floating">
-                                <textarea class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
+                                <textarea class="form-control" placeholder="Comment" id="message" style="height: 100px" name="comment"></textarea>
                                 <label for="message">Comment</label>
                             </div>
                         </div>
