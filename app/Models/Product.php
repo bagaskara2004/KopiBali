@@ -23,6 +23,22 @@ class Product extends Model
         $this->encrypter = \Config\Services::encrypter();
     }
 
+    public function getAllProduct() {
+        $datas = $datas = $this->select('product.*,categoryproduct.*')->join('categoryproduct','product.id_categoryProduct = categoryproduct.id_categoryProduct')->findAll();;
+        $results = [];
+        foreach ($datas as $data) {
+            $results[] = [
+                'id_product' => $data['id_product'],
+                'name' => $this->encrypter->decrypt($data['name_product']),
+                'description' => $this->convertDescription($this->encrypter->decrypt($data['description_product'])),
+                'photo' => $this->encrypter->decrypt($data['photo_product']),
+                'price' => 'Rp.'.$data['price_product'],
+                'category' => $this->encrypter->decrypt($data['name_categoryProduct']),
+                'id_category' => $data['id_categoryProduct']
+            ];
+        }
+        return $results;
+    }
     public function recomended() {
         $datas = $this->select('product.name_product,product.description_product,product.photo_product,product.price_product,categoryproduct.name_categoryProduct')->join('categoryproduct','product.id_categoryProduct = categoryproduct.id_categoryProduct')->where('recomended',true)->findAll();
         $results = [];
@@ -31,7 +47,7 @@ class Product extends Model
                 'name' => $this->encrypter->decrypt($data['name_product']),
                 'description' => $this->convertDescription($this->encrypter->decrypt($data['description_product'])),
                 'photo' => $this->encrypter->decrypt($data['photo_product']),
-                'price' => $data['price_product'],
+                'price' => 'Rp.'.$data['price_product'],
                 'category' => $this->encrypter->decrypt($data['name_categoryProduct'])
             ];
         }

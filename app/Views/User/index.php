@@ -1,4 +1,4 @@
-<?= $this->extend('Component/user.php') ?>
+<?= $this->extend('User/user.php') ?>
 
 <?= $this->section('Banner') ?>
 <div class="container-xxl py-5 bg-dark hero-header mb-5">
@@ -89,15 +89,6 @@
                 <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos erat ipsum et lorem et sit, sed stet lorem sit.</p>
                 <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
                 <div class="row g-4 mb-4">
-                    <div class="col-sm-6">
-                        <div class="d-flex align-items-center border-start border-5 border-primary px-3">
-                            <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">15</h1>
-                            <div class="ps-4">
-                                <p class="mb-0">Years of</p>
-                                <h6 class="text-uppercase mb-0">Experience</h6>
-                            </div>
-                        </div>
-                    </div>
                     <div class="col-sm-6">
                         <div class="d-flex align-items-center border-start border-5 border-primary px-3">
                             <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">50</h1>

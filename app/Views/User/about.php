@@ -1,4 +1,4 @@
-<?= $this->extend('Component/user.php') ?>
+<?= $this->extend('User/user.php') ?>
 
 <?= $this->section('Banner') ?>
 <div class="container-xxl py-5 bg-dark hero-header mb-5">
