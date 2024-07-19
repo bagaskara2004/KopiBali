@@ -1,7 +1,7 @@
 <?= $this->extend('User/user.php') ?>
 
 <?= $this->section('Banner') ?>
-<div class="container-xxl py-5 bg-dark hero-header mb-5">
+<div class="container-fluid py-5 bg-dark hero-header mb-5">
     <div class="container text-center my-5 pt-5 pb-4">
         <h1 class="display-3 text-white mb-3 animated slideInDown">Product</h1>
         <nav aria-label="breadcrumb">
@@ -16,7 +16,7 @@
 
 <?= $this->section('Content') ?>
 <!-- Menu Start -->
-<div class="container-xxl py-5">
+<div class="container-fluid py-5">
     <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h5 class="section-title ff-secondary text-center text-primary fw-normal">Product</h5>
