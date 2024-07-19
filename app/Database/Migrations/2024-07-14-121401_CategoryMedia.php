@@ -15,11 +15,11 @@ class CategoryMedia extends Migration
             ],
             'name_categoryMedia' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '100',
+                'constraint' => '200',
             ],
             'icon_categoryMedia' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '100',
+                'constraint' => '200',
             ]
         ]);
         $this->forge->addKey('id_categoryMedia', true);
