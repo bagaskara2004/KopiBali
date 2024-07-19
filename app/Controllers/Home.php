@@ -14,7 +14,10 @@ class Home extends BaseController
             'navbar' => '<a href="/" class="nav-item nav-link active">Home</a><a href="/about" class="nav-item nav-link">About</a><a href="/product" class="nav-item nav-link">Product</a><a href="/gallery" class="nav-item nav-link">Gallery</a>',
             'dataShop' => $this->dataShop,
             'recomended' => $this->productModel->recomended(),
-            'comments' => $this->userModel->getAllUser()
+            'comments' => $this->userModel->getAllUser(),
+            'promotions' => $this->promotionModel->getPhotoPromotion(),
+            'totalProduct' => $this->productModel->countAllResults(),
+            'totalVariant' => $this->categoryProductModel->countAllResults()
         ];
         return view('User/index.php',$data);
     }
@@ -23,7 +26,7 @@ class Home extends BaseController
         $validation = \Config\Services::validation();
 
         $validationRules = [
-            'name' => 'required|min_length[3]|max_length[10]',
+            'name' => 'required|min_length[3]|max_length[20]',
             'email' => 'required|valid_email',
             'comment' => 'required|min_length[5]|max_length[100]'
         ];

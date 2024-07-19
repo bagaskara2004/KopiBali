@@ -91,9 +91,18 @@
                 <div class="row g-4 mb-4">
                     <div class="col-sm-6">
                         <div class="d-flex align-items-center border-start border-5 border-primary px-3">
-                            <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">50</h1>
+                            <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up"><?= $totalVariant ?></h1>
                             <div class="ps-4">
-                                <p class="mb-0">Popular</p>
+                                <p class="mb-0">Variant</p>
+                                <h6 class="text-uppercase mb-0">Product</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-center border-start border-5 border-primary px-3">
+                            <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up"><?= $totalProduct ?></h1>
+                            <div class="ps-4">
+                                <p class="mb-0">Number of</p>
                                 <h6 class="text-uppercase mb-0">Product</h6>
                             </div>
                         </div>
@@ -192,15 +201,15 @@
             <h1 class="mb-5">Our Promotions</h1>
         </div>
         <div class="row g-4">
-            
+            <?php foreach ($promotions as $promotion) {?>
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                 <div class="team-item text-center rounded overflow-hidden">
                     <div>
-                        <img class="img-fluid" src="photoPromo/promo-1.jpeg" alt="">
+                        <img class="img-fluid" src="photoPromo/<?=$promotion['photo']?>" alt="">
                     </div>
                 </div>
             </div>
-            
+            <?php } ?>
         </div>
     </div>
 </div>

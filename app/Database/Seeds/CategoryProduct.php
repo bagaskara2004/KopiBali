@@ -21,8 +21,8 @@ class CategoryProduct extends Seeder
                 'name_categoryProduct' => $encrypter->encrypt('Liberica')
             ],
         ];
-        for ($i=0; $i < 3; $i++) { 
-            $categoryProductModel->save($data[$i]);
+        foreach ($data as $category) {
+            $categoryProductModel->save($category);
         }
     }
 }
