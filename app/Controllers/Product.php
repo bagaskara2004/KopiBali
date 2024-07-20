@@ -14,7 +14,8 @@ class Product extends BaseController
             'navbar' => '<a href="/" class="nav-item nav-link">Home</a><a href="/about" class="nav-item nav-link">About</a><a href="/product" class="nav-item nav-link active">Product</a><a href="/gallery" class="nav-item nav-link">Gallery</a>',
             'dataShop' => $this->dataShop,
             'dataCategoryProduct' => $this->categoryProductModel->getAllCategoryProduct(),
-            'dataProduct' => $this->productModel->getAllProduct()
+            'dataProduct' => $this->productModel->getAllProduct(),
+            'dataMedia' => $this->mediaModel->getAllMedia()
         ];
         return view('User/product.php',$data);
     }
@@ -23,6 +24,7 @@ class Product extends BaseController
             'title' => $this->title,
             'dataShop' => $this->dataShop,
             'dataProduct' => $this->productModel->getProductById($id),
+            'dataMedia' => $this->mediaModel->getAllMedia(),
             'navbar' => '<a href="/" class="nav-item nav-link">Home</a><a href="/about" class="nav-item nav-link">About</a><a href="/product" class="nav-item nav-link">Product</a><a href="/gallery" class="nav-item nav-link">Gallery</a>',
         ];
         return view('User/detailProduct',$data);
