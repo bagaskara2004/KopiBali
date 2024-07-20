@@ -35,6 +35,7 @@ $routes->get('/shoplist', 'ShopList::index');
 $routes->get('/shoplist/getShops', 'ShopList::getShops');
 $routes->post('/shoplist/save', 'ShopList::save');
 $routes->post('/user', 'Home::user');
-$routes->get('/product/(:num)', 'Product::detail/$1');
+$routes->get('/product/(:any)', 'Product::detailProduct/$1');
+$routes->get('/promotion/(:any)', 'Home::detailPromotion/$1');
 
 $routes->get('/auth', 'Auth::index');

@@ -45,4 +45,20 @@ class Promotion extends Model
         }
         return $results;
     }
+
+    public function getPromotionById($id)
+    {
+        $datas = $this->find($id);
+        if (!$datas) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Product Tidak Ditemukan");
+        }
+        $results = [
+            'title' => $this->encrypter->decrypt($datas['title_promotion']),
+            'description' => $this->encrypter->decrypt($datas['description_promotion']),
+            'photo' => $this->encrypter->decrypt($datas['photo_promotion']),
+            'start' => $datas['start_date'],
+            'end' => $datas['end_date'],
+        ];
+        return $results;
+    }
 }

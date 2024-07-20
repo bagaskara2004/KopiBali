@@ -49,4 +49,13 @@ class Home extends BaseController
             return redirect()->to('/');
         }
     }
+    public function detailPromotion($id) {
+        $data = [
+            'title' => $this->title,
+            'dataShop' => $this->dataShop,
+            'dataPromotion' => $this->promotionModel->getPromotionById($id),
+            'navbar' => '<a href="/" class="nav-item nav-link">Home</a><a href="/about" class="nav-item nav-link">About</a><a href="/product" class="nav-item nav-link">Product</a><a href="/gallery" class="nav-item nav-link">Gallery</a>',
+        ];
+        return view('User/detailPromotion',$data);
+    }
 }

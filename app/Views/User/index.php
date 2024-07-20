@@ -202,7 +202,7 @@
         </div>
         <div class="row g-4">
             <?php foreach ($promotions as $promotion) {?>
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="col-lg-3 col-md-6 wow fadeInUp promotion" data-wow-delay="0.3s" data-id="<?=$promotion['id_promotion']?>">
                 <div class="team-item text-center rounded overflow-hidden">
                     <div>
                         <img class="img-fluid" src="photoPromo/<?=$promotion['photo']?>" alt="">

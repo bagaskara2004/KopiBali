@@ -508,6 +508,9 @@
     cursor: pointer;
     background-color: #e7e7e7;
 }
+.promotion:hover{
+    cursor: pointer;
+}
 
 @media (min-width: 576px) {
   #login .btn-signin {

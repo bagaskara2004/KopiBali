@@ -18,7 +18,7 @@ class Product extends BaseController
         ];
         return view('User/product.php',$data);
     }
-    public function detail($id) {
+    public function detailProduct($id) {
         $data = [
             'title' => $this->title,
             'dataShop' => $this->dataShop,
