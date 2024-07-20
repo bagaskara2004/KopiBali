@@ -13,11 +13,12 @@ class Media extends Migration
                 'type'           => 'INT',
                 'auto_increment' => true,
             ],
-            'id_categoryMedia' => [
-                'type'           => 'INT',
-            ],
             'id_shop' => [
                 'type'           => 'INT',
+            ],
+            'name_media' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '200',
             ],
             'link_media' => [
                 'type'       => 'VARCHAR',
@@ -26,7 +27,6 @@ class Media extends Migration
         ]);
         $this->forge->addKey('id_media', true);
         $this->forge->addForeignKey('id_shop', 'shop', 'id_shop');
-        $this->forge->addForeignKey('id_categoryMedia', 'categoryMedia', 'id_categoryMedia');
         $this->forge->createTable('media');
     }
 

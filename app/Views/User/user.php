@@ -84,10 +84,9 @@
                         <p class="mb-2"><i class="fa fa-phone me-3"></i><?= $dataShop['telp'] ?></p>
                         <p class="mb-2"><i class="fa fa-envelope me-3"></i><?= $dataShop['email'] ?></p>
                         <div class="d-flex pt-2">
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                            <?php foreach ($dataMedia as $media) {?>
+                            <a class="btn btn-outline-light btn-social" href="<?=$media['link']?>"><i class="fab fa-<?=$media['name']?>"></i></a>
+                            <?php } ?>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">

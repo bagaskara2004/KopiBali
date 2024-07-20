@@ -17,7 +17,8 @@ class Home extends BaseController
             'comments' => $this->userModel->getAllUser(),
             'promotions' => $this->promotionModel->getPhotoPromotion(),
             'totalProduct' => $this->productModel->countAllResults(),
-            'totalVariant' => $this->categoryProductModel->countAllResults()
+            'totalVariant' => $this->categoryProductModel->countAllResults(),
+            'dataMedia' => $this->mediaModel->getAllMedia()
         ];
         return view('User/index.php',$data);
     }
