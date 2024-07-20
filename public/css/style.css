@@ -504,6 +504,11 @@
   width: 100%;
 }
 
+.product:hover{
+    cursor: pointer;
+    background-color: #e7e7e7;
+}
+
 @media (min-width: 576px) {
   #login .btn-signin {
     width: 80%;

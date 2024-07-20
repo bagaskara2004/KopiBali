@@ -21,15 +21,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -48,7 +48,7 @@
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
                 <a href="" class="navbar-brand p-0">
                     <!-- <h1 class="text-primary m-0"><i class="fa fa-utensils me-3"></i>Restoran</h1> -->
-                    <img src="img/logo.png" alt="Logo">
+                    <img src="/img/logo.png" alt="Logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars"></span>
@@ -143,17 +143,18 @@
     <script src='https://widgets.sociablekit.com/instagram-feed/widget.js' asyncdefer></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/tempusdominus/js/moment.min.js"></script>
-    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="/lib/wow/wow.min.js"></script>
+    <script src="/lib/easing/easing.min.js"></script>
+    <script src="/lib/waypoints/waypoints.min.js"></script>
+    <script src="/lib/counterup/counterup.min.js"></script>
+    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/logic.js"></script>
 </body>
 
 </html>

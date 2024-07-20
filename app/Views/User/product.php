@@ -6,7 +6,7 @@
         <h1 class="display-3 text-white mb-3 animated slideInDown">Product</h1>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb justify-content-center text-uppercase">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
                 <li class="breadcrumb-item text-white active" aria-current="page">Product</li>
             </ol>
         </nav>
@@ -44,7 +44,7 @@
 
                         <?php foreach ($dataProduct as $product) {?>
                         <?php if ($product['id_category'] == $i+1) {?>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 product" data-id="<?=$product['id_product']?>">
                             <div class="d-flex align-items-center">
                                 <img class="flex-shrink-0 img-fluid rounded" src="photoProduct/<?=$product['photo']?>" alt="" style="width: 80px;">
                                 <div class="w-100 d-flex flex-column text-start ps-4">

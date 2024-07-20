@@ -128,7 +128,7 @@
                     <div class="row g-4">
                         
                         <?php foreach ($recomended as $datas) {?>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 product" data-id="<?=$datas['id_product']?>">
                             <div class="d-flex align-items-center">
                                 <img class="flex-shrink-0 img-fluid rounded" src="photoProduct/<?=$datas['photo']?>" alt="" style="width: 80px;">
                                 <div class="w-100 d-flex flex-column text-start ps-4">
