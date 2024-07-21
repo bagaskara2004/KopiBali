@@ -18,6 +18,11 @@
             /* Warna latar belakang sidebar */
         }
 
+        .navbar {
+            background-color: #ffffff;
+            /* Warna latar belakang navbar */
+        }
+
         @media (max-width: 576px) {
             .sidebar {
                 position: absolute;
@@ -52,64 +57,19 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <div class="navbar">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <a href="/admin" class="container-fluid d-flex justify-content-center">
-            <img src="/Asset/logocoffeeadmin.png" class="w-50 h-50 rounded" alt="...">
-        </a>
-    </nav>
-    <div class="col py-3">
-        <button class="btn btn-outline-primary d-sm-none" id="sidebarToggle">
-            <i class="bi bi-list"></i></button>
-        <div id="contentOverlay" class="content-overlay"></div>
-    </div>
-</div>
-
-<div class="container-fluid">
-    <div class="row flex-nowrap">
-        <div class="col-auto col-sm-3 col-md-2 sidebar px-sm-2 px-0">
-            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link align-middle px-0">
-                            <i class="bi bi-clipboard-data-fill fs-3"></i> <span class="ms-1 d-none d-sm-inline">Overview</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/productlist" class="nav-link px-0 align-middle">
-                            <i class="bi bi-bag-fill fs-3"></i> <span class="ms-1 d-none d-sm-inline">Product</span></a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link px-0 align-middle">
-                            <i class="bi bi-image-fill fs-3"></i> <span class="ms-1 d-none d-sm-inline">Galery</span></a>
-                    </li>
-                    <li>
-                        <a href="/promotion" class="nav-link px-0 align-middle">
-                            <i class="bi bi-megaphone-fill fs-3"></i> <span class="ms-1 d-none d-sm-inline">Promotion</span></a>
-                    </li>
-                    <li>
-                        <a href="/subcription" class="nav-link px-0 align-middle">
-                            <i class="bi bi-bell-fill fs-3"></i> <span class="ms-1 d-none d-sm-inline">Subciption</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/shoplist" class="nav-link px-0 align-middle">
-                            <i class="bi bi-bell-fill fs-3"></i> <span class="ms-1 d-none d-sm-inline">shop</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/cproduct" class="nav-link px-0 align-middle">
-                            <i class="bi bi-bell-fill fs-3"></i> <span class="ms-1 d-none d-sm-inline">Category Product</span>
-                        </a>
-                    </li>
-                </ul>
-                <hr>
-                <div class="dropdown pb-4">
-                    <a href="#" class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="/Asset/profil.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
-                        <span class="d-none d-sm-inline mx-1">Mas Admin</span>
+        <div class="container-fluid">
+            <a href="/admin" class="navbar-brand">
+                <img src="/img/logo-dark.png" class="w-200 h-45 rounded" alt="...">
+            </a>
+            <div class="navbar-nav ms-auto">
+                <div class="dropdown">
+                    <a href="#" class="nav-link dropdown-toggle text-dark" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="/img/team-4.jpg" alt="pfp" width="30" height="30" class="rounded-circle">
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                        <li>
+                            <span class="dropdown-item">Mas Admin</span>
+                        </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -118,10 +78,78 @@
                 </div>
             </div>
         </div>
+    </nav>
+    <div class="col py-3">
+        <button class="btn btn-outline-primary d-sm-none" id="sidebarToggle">
+            <i class="bi bi-list"></i></button>
+        <div id="contentOverlay" class="content-overlay"></div>
+    </div>
+</div>
+
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-sm-3 col-md-2 sidebar px-sm-2 px-0">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white">
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start min-vh-100" id="menu">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link align-middle px-0">
+                            <i class="bi bi-clipboard-data fs-3"></i> <span class="ms-1 d-none d-sm-inline">Overview</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/productlist" class="nav-link px-0 align-middle">
+                            <i class="bi bi-bag fs-3"></i> <span class="ms-1 d-none d-sm-inline">Product</span></a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link px-0 align-middle">
+                            <i class="bi bi-image fs-3"></i> <span class="ms-1 d-none d-sm-inline">Galery</span></a>
+                    </li>
+                    <li>
+                        <a href="/promotion" class="nav-link px-0 align-middle">
+                            <i class="bi bi-megaphone fs-3"></i> <span class="ms-1 d-none d-sm-inline">Promotion</span></a>
+                    </li>
+                    <li>
+                        <a href="/subcription" class="nav-link px-0 align-middle">
+                            <i class="bi bi-bell fs-3"></i> <span class="ms-1 d-none d-sm-inline">Subciption</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/shoplist" class="nav-link px-0 align-middle">
+                            <i class="bi bi-shop-window fs-3"></i> <span class="ms-1 d-none d-sm-inline">Shop</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/cproduct" class="nav-link px-0 align-middle">
+                            <i class="bi bi-card-list fs-3"></i> </i> <span class="ms-1 d-none d-sm-inline">Category Product</span>
+                        </a>
+                    </li>
+                </ul>
+                <hr>
+            </div>
+        </div>
         <div class="col py-3">
             <?= $this->renderSection('content') ?>
         </div>
     </div>
+    <footer class="content-footer footer bg-footer-theme">
+        <div class="container-xxl">
+            <div class="footer-container d-flex align-items-center justify-content-between py-2 flex-md-row flex-column">
+                <div>
+                    <img src="/img/logo-dark.png" class="w-200 h-45 rounded" alt="...">
+                    • Copyright ©
+                    <script>
+                        document.write(new Date().getFullYear());
+                    </script>
+                </div>
+                <div>
+                    <a href="#" class="footer-link me-4" target="_blank"><i class="bi bi-facebook"></i></a>
+                    <a href="#" target="_blank" class="footer-link me-4"><i class="bi bi-twitter"></i></a>
+                    <a href="#" target="_blank" class="footer-link d-none d-sm-inline-block"><i class="bi bi-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </div>
 <!-- Bootstrap Bundle JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
