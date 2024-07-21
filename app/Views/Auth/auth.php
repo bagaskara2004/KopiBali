@@ -1,5 +1,4 @@
-</html>
-<?= $this->extend('Component/user.php') ?>
+<?= $this->extend('User/user.php') ?>
 <?= $this->section('Banner') ?>
 <div class="container-xxl py-5 bg-dark hero-header mb-5">
   <div class="container text-center my-5 pt-5 pb-4">
@@ -21,27 +20,22 @@
         <div class="row g-5">
           <div class="col-lg-6">
             <div class="card-body p-md-0 mx-md-4">
-              <form>
+              <form method="post" action="/auth">
                 <h1 class="mb-4">Login</h1>
-                <p>Login to access your travelwise account</p>
+                <p>Login For Administrator</p>
                 <!-- Email input -->
                 <div class="form-outline mb-4">
                   <label class="form-label" for="form2Example1">Email address</label>
-                  <input type="email" id="form2Example1" class="form-control" />
+                  <input type="email" name="email" id="form2Example1" class="form-control" />
                 </div>
                 <!-- Password input -->
                 <div class="form-outline mb-4">
                   <label class="form-label" for="form2Example2">Password</label>
-                  <input type="password" id="form2Example2" class="form-control" />
-                </div>
-                <!-- Checkbox -->
-                <div class="form-check mb-4">
-                  <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-                  <label class="form-check-label" for="form2Example31"> Remember me </label>
+                  <input type="password" name="password" id="form2Example2" class="form-control" />
                 </div>
                 <!-- Submit button -->
                 <div class="d-grid">
-                  <button type="button" class="btn btn-block text-white ">Sign in</button>
+                  <button type="submit" class="btn btn-block text-white ">Sign in</button>
                 </div>
               </form>
             </div>

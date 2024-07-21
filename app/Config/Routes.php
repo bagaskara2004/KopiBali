@@ -39,3 +39,4 @@ $routes->get('/product/(:any)', 'Product::detailProduct/$1');
 $routes->get('/promotion/(:any)', 'Home::detailPromotion/$1');
 
 $routes->get('/auth', 'Auth::index');
+$routes->post('/auth', 'Auth::login');

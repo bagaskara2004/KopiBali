@@ -30,6 +30,8 @@ abstract class BaseController extends Controller
     protected $productModel;
     protected $promotionModel;
     protected $userModel;
+    protected $validation;
+    protected $session;
     /**
      * Instance of the main Request object.
      *
@@ -68,6 +70,8 @@ abstract class BaseController extends Controller
         $this->promotionModel = new \App\Models\Promotion();
         $this->userModel = new \App\Models\User();
         $this->encrypter = \Config\Services::encrypter();
+        $this->validation = \Config\Services::validation();
+        $this->session = \Config\Services::session();
         $this->dataShop = $this->shopModel->getShopById(1);
         // E.g.: $this->session = \Config\Services::session();
     }

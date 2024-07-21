@@ -37,5 +37,14 @@ class Shop extends Model
         ];
         return $result;
     }
+
+    public function getShopByEmail($email) {
+        $data = $this->select('id_shop,email')->findAll();
+        foreach ($data as $datas) {
+            if ($this->encrypter->decrypt($datas['email']) == $email) {
+                return $this->getShopById($datas['id_shop']);
+            }
+        }
+    }
     
 }

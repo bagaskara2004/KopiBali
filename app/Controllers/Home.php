@@ -24,8 +24,6 @@ class Home extends BaseController
     }
 
     public function user() {
-        $validation = \Config\Services::validation();
-
         $validationRules = [
             'name' => 'required|min_length[3]|max_length[20]',
             'email' => 'required|valid_email',
@@ -48,7 +46,7 @@ class Home extends BaseController
                 return redirect()->to('/');
             }
         } else {
-            session()->setFlashdata('erorr', $validation->listErrors());
+            session()->setFlashdata('erorr', $this->validation->listErrors());
             return redirect()->to('/');
         }
     }
