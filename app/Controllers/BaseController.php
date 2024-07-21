@@ -68,20 +68,7 @@ abstract class BaseController extends Controller
         $this->promotionModel = new \App\Models\Promotion();
         $this->userModel = new \App\Models\User();
         $this->encrypter = \Config\Services::encrypter();
-
-        $data = $this->shopModel->first();
-        $this->dataShop = [
-            'id_shop' => $data['id_shop'],
-            'name' => $this->encrypter->decrypt($data['name']),
-            'email' => $this->encrypter->decrypt($data['email']),
-            'address' => $this->encrypter->decrypt($data['address']),
-            'telp' => $this->encrypter->decrypt($data['telp']),
-            'maps' => $data['maps'],
-            'password' => $this->encrypter->decrypt($data['password']),
-            'gallery' => $this->encrypter->decrypt($data['gallery']),
-            'open' => $data['open'],
-            'close' => $data['close'],
-        ];
+        $this->dataShop = $this->shopModel->getShopById(1);
         // E.g.: $this->session = \Config\Services::session();
     }
 }

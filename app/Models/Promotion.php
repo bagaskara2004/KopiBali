@@ -50,7 +50,7 @@ class Promotion extends Model
     {
         $datas = $this->find($id);
         if (!$datas) {
-            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Product Tidak Ditemukan");
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Promotion Tidak Ditemukan");
         }
         $results = [
             'title' => $this->encrypter->decrypt($datas['title_promotion']),

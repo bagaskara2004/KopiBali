@@ -33,11 +33,13 @@ class Home extends BaseController
         ];
 
         if ($this->validate($validationRules)) {
-            $nama = $this->request->getPost('name');
-            $email = $this->request->getPost('email');
-            $comment = $this->request->getPost('comment');
-            
-            if ( $this->userModel->cekUser($email)) {
+            $nama = strip_tags(strval($this->request->getPost('name')));
+            $email = strip_tags(strval($this->request->getPost('email')));
+            $comment = strip_tags(strval($this->request->getPost('comment')));
+            if (empty($nama) || empty($email) || empty($comment)) {
+                session()->setFlashdata('erorr', 'Failed to send');
+                return redirect()->to('/');
+            }else if ( $this->userModel->cekUser($email)) {
                 session()->setFlashdata('erorr', 'Email is registered');
                 return redirect()->to('/');
             }else {
