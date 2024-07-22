@@ -54,6 +54,7 @@
         }
     </style>
 </head>
+<?php $session = session(); ?>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <div class="navbar">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -65,15 +66,12 @@
                 <div class="dropdown">
                     <a href="#" class="nav-link dropdown-toggle text-dark" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="/img/team-4.jpg" alt="pfp" width="30" height="30" class="rounded-circle">
+                        <span class="d-none d-sm-inline mx-1">
+                                <?= session()->get('name') ?>
+                            </span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                        <li>
-                            <span class="dropdown-item">Mas Admin</span>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        <li><a class="dropdown-item" href="/logout">Sign out</a></li>
                     </ul>
                 </div>
             </div>
@@ -121,7 +119,7 @@
                     </li>
                     <li>
                         <a href="/cproduct" class="nav-link px-0 align-middle">
-                            <i class="bi bi-card-list fs-3"></i> </i> <span class="ms-1 d-none d-sm-inline">Category Product</span>
+                            <i class="bi bi-card-list fs-3"></i> <span class="ms-1 d-none d-sm-inline">Category Product</span>
                         </a>
                     </li>
                 </ul>

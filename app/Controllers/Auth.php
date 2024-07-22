@@ -29,7 +29,8 @@ class Auth extends BaseController
                 if ($data['password'] == $password) {
                     $sesi = [
                         'role' => 'admin',
-                        'id_shop' => $data['id_shop']
+                        'id_shop' => $data['id_shop'],
+                        'name' => $data['name']
                     ];
                     $this->session->set($sesi);
                     return redirect()->to('/admin');
@@ -45,5 +46,12 @@ class Auth extends BaseController
             session()->setFlashdata('erorr', $this->validation->listErrors());
             return redirect()->to('/auth');
         }
+    }
+
+    public function logout()
+    {
+        $session = session();
+        $session->destroy();
+        return redirect()->to('/auth');
     }
 }

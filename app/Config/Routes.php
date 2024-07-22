@@ -40,3 +40,4 @@ $routes->get('/promotion/(:any)', 'Home::detailPromotion/$1');
 
 $routes->get('/auth', 'Auth::index');
 $routes->post('/auth', 'Auth::login');
+$routes->get('/logout', 'Auth::logout');
