@@ -5,9 +5,13 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 use App\Models\Product;
+use App\Models\CategoryProduct;
+use App\Models\Shop;
 
 class ProductList extends BaseController
 {
+
+
     public function index()
     {
         return view('admin/productList');
@@ -16,54 +20,48 @@ class ProductList extends BaseController
     public function getProducts()
     {
         $productModel = new Product();
-        $products = $productModel->findAll();
+        $products = $productModel->getProduct();
 
         return $this->response->setJSON(['products' => $products]);
     }
 
-    public function getProduct($id)
+    public function getProductById($id)
     {
-        $productModel = new Product();
-        $product = $productModel->find($id);
-
-        return $this->response->setJSON($product);
+        $product = $this->productModel->getProductById($id);
+        if ($product) {
+            return $this->response->setJSON($product);
+        }
+        return $this->response->setJSON(['error' => 'Product not found'], ResponseInterface::HTTP_NOT_FOUND);
     }
 
-    public function save()
+    public function saveProduct()
     {
         $productModel = new Product();
+        $data = $this->request->getPost();
+        $photo = $this->request->getFile('photo_product');
 
-        $data = [
-            'id_categoryProduct' => $this->request->getPost('id_categoryProduct'),
-            'id_shop' => $this->request->getPost('id_shop'),
-            'name_product' => $this->request->getPost('name_product'),
-            'description_product' => $this->request->getPost('description_product'),
-            'price_product' => $this->request->getPost('price_product'),
-            'recomended' => $this->request->getPost('recomended'),
-        ];
+        if ($photo->isValid() && !$photo->hasMoved()) {
+            $photo->move(WRITEPATH . '/public/photoProduct');
+            $data['photo_product'] = $photo->getName();
+        }
 
-        $productModel->save($data);
-
-        return redirect()->to('/productlist');
+        $productModel->saveProduct($data);
+        return $this->response->setJSON(['status' => 'Product saved']);
     }
 
-    public function update()
+    public function updateProduct($id)
     {
-        $productModel = new Product();
+
         $id = $this->request->getPost('id_product');
 
-        $data = [
-            'id_categoryProduct' => $this->request->getPost('id_categoryProduct'),
-            'id_shop' => $this->request->getPost('id_shop'),
-            'name_product' => $this->request->getPost('name_product'),
-            'description_product' => $this->request->getPost('description_product'),
-            'price_product' => $this->request->getPost('price_product'),
-            'recomended' => $this->request->getPost('recomended'),
-        ];
-
-        $productModel->update($id, $data);
-
-        return $this->response->setJSON(['status' => 'Product updated']);
+        $data = $this->request->getPost();
+        if ($this->request->getFile('photo_product')->isValid()) {
+            $data['photo_product'] = $this->request->getFile('photo_product')->store();
+        }
+        if ($this->productModel->updateProduct($id, $data)) {
+            return $this->response->setJSON(['status' => 'Product updated']);
+        }
+        return $this->response->setJSON(['error' => 'Failed to update product'], ResponseInterface::HTTP_BAD_REQUEST);
     }
 
     public function delete()
@@ -73,5 +71,21 @@ class ProductList extends BaseController
         $productModel->delete($id);
 
         return $this->response->setJSON(['status' => 'Product deleted']);
+    }
+    public function getCategories()
+    {
+        $categoryModel = new CategoryProduct();
+        $categories = $categoryModel->getAllCategoryProduct();
+
+        return $this->response->setJSON(['categories' => $categories]);
+    }
+
+
+    public function updateRecomended($id)
+    {
+        $productModel = new Product();
+        $data['recomended'] = $this->request->getPost('recomended');
+        $productModel->update($id, $data);
+        return $this->response->setJSON(['status' => 'success']);
     }
 }

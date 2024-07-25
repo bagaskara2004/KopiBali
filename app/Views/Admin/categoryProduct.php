@@ -142,6 +142,7 @@
                                 'success'
                             )
                             loadCategories();
+                            $('.modal-backdrop').remove();
                         },
                         error: function() {
                             Swal.fire(
@@ -185,6 +186,7 @@
                         'success'
                     )
                     loadCategories();
+                    $('.modal-backdrop').remove();
                 },
                 error: function() {
                     Swal.fire(
@@ -210,6 +212,7 @@
                         'success'
                     )
                     loadCategories();
+                    $('.modal-backdrop').remove();
                 },
                 error: function() {
                     Swal.fire(

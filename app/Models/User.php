@@ -30,8 +30,9 @@ class User extends Model
         }
         return $exist;
     }
-    
-    public function getAllUser() {
+
+    public function getAllUser()
+    {
         $users = $this->findAll();
         $results = [];
         foreach ($users as $user) {
@@ -48,7 +49,7 @@ class User extends Model
         return $results;
     }
 
-    public function addUser($nama,$email,$comment)
+    public function addUser($nama, $email, $comment)
     {
         $data = [
             'id_shop' => 1,
@@ -59,5 +60,20 @@ class User extends Model
             'date' => date("Y-m-d H:i:s")
         ];
         $this->save($data);
+    }
+    public function deleteUser($id_user)
+    {
+        return $this->delete($id_user);
+    }
+    public function getUserCountByMonth()
+    {
+        return $this->select("DATE_FORMAT(date, '%Y-%m') as month, COUNT(*) as count")
+            ->groupBy('month')
+            ->orderBy('month', 'ASC')
+            ->findAll();
+    }
+    public function updatePostStatus($id_user, $status)
+    {
+        return $this->update($id_user, ['post' => $status]);
     }
 }

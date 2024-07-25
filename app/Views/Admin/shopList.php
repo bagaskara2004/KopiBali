@@ -14,135 +14,66 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <h4>Shop</h4>
+                    <h4>Edit Shop</h4>
                 </div>
-                <div class="col-md-8 text-end">
-                    <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addShopModal">Tambah Shop</button>
-                </div>
+
             </div>
         </div>
         <div class="card">
             <div class="card-datatable table-responsive pt-0">
-                <table class="datatables-basic table">
-                    <thead>
-                        <tr>
-                            <th>Foto</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Telp</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody id="shopTableBody">
-                        <!-- Shop data will be loaded here via AJAX -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</main>
+                <?php if (session()->getFlashdata('message')) : ?>
+                    <div class="alert alert-success">
+                        <?= session()->getFlashdata('message') ?>
+                    </div>
+                <?php endif; ?>
+                <form action="<?= base_url('shoplist/update/' . $shop['id_shop']) ?>" method="post" enctype="multipart/form-data">
+                    <?= csrf_field() ?>
 
-<!-- Add Shop Modal -->
-<div class="modal fade" id="addShopModal" tabindex="-1" aria-labelledby="addShopModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addShopModalLabel">Tambah Shop</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="addShopForm" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
+                        <input type="text" class="form-control" id="name" name="name" value="<?= old('name', $shop['name'] ?? '') ?>" required>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
+                        <input type="email" class="form-control" id="email" name="email" value="<?= old('email', $shop['email'] ?? '') ?>" required>
                     </div>
                     <div class="mb-3">
                         <label for="address" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="address" name="address" required>
+                        <input type="text" class="form-control" id="address" name="address" value="<?= old('address', $shop['address'] ?? '') ?>" required>
                     </div>
                     <div class="mb-3">
-                        <label for="telp" class="form-label">Telp</label>
-                        <input type="text" class="form-control" id="telp" name="telp" required>
+
+                        <label for="telp" class="form-label">Telephone</label>
+                        <input type="text" class="form-control" id="telp" name="telp" value="<?= old('telp', $shop['telp'] ?? '') ?>" required>
                     </div>
                     <div class="mb-3">
                         <label for="maps" class="form-label">Maps</label>
-                        <input type="text" class="form-control" id="maps" name="maps" required>
+                        <input type="text" class="form-control" id="maps" name="maps" value="<?= old('maps', $shop['maps'] ?? '') ?>">
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" required>
+                        <input type="password" class="form-control" id="password" name="password" value="<?= old('password', $shop['password'] ?? '') ?>" required>
                     </div>
                     <div class="mb-3">
                         <label for="gallery" class="form-label">Gallery</label>
-                        <input type="file" class="form-control" id="gallery" name="gallery" required>
+                        <input type="file" class="form-control" id="gallery" name="gallery" accept="image/*">
                     </div>
                     <div class="mb-3">
                         <label for="open" class="form-label">Open</label>
-                        <input type="time" class="form-control" id="open" name="open" required>
+                        <label for="open" class="form-label">Open Time</label>
+                        <input type="time" class="form-control" id="open" name="open" value="<?= old('open', $shop['open'] ?? '') ?>" required>
                     </div>
                     <div class="mb-3">
                         <label for="close" class="form-label">Close</label>
-                        <input type="time" class="form-control" id="close" name="close" required>
+                        <label for="close" class="form-label">Close Time</label>
+                        <input type="time" class="form-control" id="close" name="close" value="<?= old('close', $shop['close'] ?? '') ?>" required>
+
                     </div>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>
     </div>
-</div>
-
-<script>
-    $(document).ready(function() {
-        loadShopData();
-
-        // Load shop data
-        function loadShopData() {
-            $.ajax({
-                url: '<?= base_url('shoplist/getShops') ?>',
-                type: 'GET',
-                dataType: 'json',
-                success: function(response) {
-                    var shopTableBody = $('#shopTableBody');
-                    shopTableBody.empty();
-                    $.each(response, function(index, shop) {
-                        shopTableBody.append('<tr>' +
-                            '<td><img src="' + shop.gallery + '" class="img-fixed-size"></td>' +
-                            '<td>' + shop.name + '</td>' +
-                            '<td>' + shop.email + '</td>' +
-                            '<td>' + shop.telp + '</td>' +
-                            '<td>edit delete detail</td>' +
-                            '</tr>');
-                    });
-                }
-            });
-        }
-
-        // Add shop
-        $('#addShopForm').submit(function(event) {
-            event.preventDefault();
-            var formData = new FormData(this);
-            $.ajax({
-                url: '<?= base_url('shoplist/save') ?>',
-                type: 'POST',
-                data: formData,
-                processData: false,
-                contentType: false,
-                dataType: 'json',
-                success: function(response) {
-                    if (response.success) {
-                        $('#addShopModal').modal('hide');
-                        loadShopData();
-                    } else {
-                        alert('Failed to add shop');
-                    }
-                }
-            });
-        });
-    });
-</script>
+</main>
 
 <?= $this->endSection() ?>

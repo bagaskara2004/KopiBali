@@ -17,7 +17,8 @@ class CategoryProduct extends Model
         $this->encrypter = \Config\Services::encrypter();
     }
 
-    public function getAllCategoryProduct() {
+    public function getAllCategoryProduct()
+    {
         $datas = $this->findAll();
         $results = [];
         foreach ($datas as $data) {
@@ -27,5 +28,29 @@ class CategoryProduct extends Model
             ];
         }
         return $results;
+    }
+    public function saveCategoryProduct($data)
+    {
+        if (isset($data['name_categoryProduct'])) {
+            $data['name_categoryProduct'] = $this->encrypter->encrypt($data['name_categoryProduct']);
+        }
+        return $this->save($data);
+    }
+
+    public function getCategoryProductById($id)
+    {
+        $data = $this->find($id);
+        if ($data) {
+            $data['name_categoryProduct'] = $this->encrypter->decrypt($data['name_categoryProduct']);
+        }
+        return $data;
+    }
+
+    public function updateCategoryProduct($id, $data)
+    {
+        if (isset($data['name_categoryProduct'])) {
+            $data['name_categoryProduct'] = $this->encrypter->encrypt($data['name_categoryProduct']);
+        }
+        return $this->update($id, $data);
     }
 }

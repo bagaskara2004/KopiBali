@@ -12,6 +12,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <style>
         .sidebar {
             background-color: #ffffff;
@@ -67,8 +68,8 @@
                     <a href="#" class="nav-link dropdown-toggle text-dark" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="/img/team-4.jpg" alt="pfp" width="30" height="30" class="rounded-circle">
                         <span class="d-none d-sm-inline mx-1">
-                                <?= session()->get('name') ?>
-                            </span>
+                            <?= session()->get('name') ?>
+                        </span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
                         <li><a class="dropdown-item" href="/logout">Sign out</a></li>
@@ -91,7 +92,7 @@
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white">
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start min-vh-100" id="menu">
                     <li class="nav-item">
-                        <a href="#" class="nav-link align-middle px-0">
+                        <a href="/overview" class="nav-link align-middle px-0">
                             <i class="bi bi-clipboard-data fs-3"></i> <span class="ms-1 d-none d-sm-inline">Overview</span>
                         </a>
                     </li>
@@ -100,16 +101,12 @@
                             <i class="bi bi-bag fs-3"></i> <span class="ms-1 d-none d-sm-inline">Product</span></a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link px-0 align-middle">
-                            <i class="bi bi-image fs-3"></i> <span class="ms-1 d-none d-sm-inline">Galery</span></a>
-                    </li>
-                    <li>
                         <a href="/promotion" class="nav-link px-0 align-middle">
                             <i class="bi bi-megaphone fs-3"></i> <span class="ms-1 d-none d-sm-inline">Promotion</span></a>
                     </li>
                     <li>
-                        <a href="/subcription" class="nav-link px-0 align-middle">
-                            <i class="bi bi-bell fs-3"></i> <span class="ms-1 d-none d-sm-inline">Subciption</span>
+                        <a href="/userlist/getComment" class="nav-link px-0 align-middle">
+                            <i class="bi bi-bell fs-3"></i> <span class="ms-1 d-none d-sm-inline">Commen</span>
                         </a>
                     </li>
                     <li>
@@ -120,6 +117,16 @@
                     <li>
                         <a href="/cproduct" class="nav-link px-0 align-middle">
                             <i class="bi bi-card-list fs-3"></i> <span class="ms-1 d-none d-sm-inline">Category Product</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/medialist" class="nav-link px-0 align-middle">
+                            <i class="bi bi-bell-fill fs-3"></i> <span class="ms-1 d-none d-sm-inline">Media List</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/userlist" class="nav-link px-0 align-middle">
+                            <i class="bi bi-bell-fill fs-3"></i> <span class="ms-1 d-none d-sm-inline">User List</span>
                         </a>
                     </li>
                 </ul>

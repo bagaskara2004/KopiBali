@@ -1,7 +1,6 @@
 <?= $this->extend('Admin\admin') ?>
 <?= $this->section('content') ?>
 
-
 <style>
     .img-fixed-size {
         width: 40px;
@@ -27,7 +26,7 @@
                 <table class="datatables-basic table">
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>Photo</th>
                             <th>Promosi</th>
                             <th>Deskripsi</th>
                             <th>Tanggal Mulai</th>
@@ -44,71 +43,85 @@
     </div>
 </main>
 
-<!-- Modal untuk menambahkan promosi -->
+<!-- Modal Tambah Promosi -->
 <div class="modal fade" id="addPromotionModal" tabindex="-1" aria-labelledby="addPromotionModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="addPromotionModalLabel">Tambah Promosi</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <form id="addPromotionForm">
+            <form id="addPromotionForm" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <input type="hidden" name="id_shop" value="1">
                     <div class="mb-3">
-                        <label for="title_promotion" class="form-label">Promosi</label>
+                        <label for="title_promotion" class="form-label">Judul Promosi</label>
                         <input type="text" class="form-control" id="title_promotion" name="title_promotion" required>
                     </div>
                     <div class="mb-3">
-                        <label for="description_promotion" class="form-label">Deskripsi</label>
-                        <input type="text" class="form-control" id="description_promotion" name="description_promotion" required>
+                        <label for="description_promotion" class="form-label">Deskripsi Promosi</label>
+                        <textarea class="form-control" id="description_promotion" name="description_promotion" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="photo_promotion" class="form-label">Foto Promosi</label>
+                        <input type="file" class="form-control" id="photo_promotion" name="photo_promotion" required>
                     </div>
                     <div class="mb-3">
                         <label for="start_date" class="form-label">Tanggal Mulai</label>
-                        <input type="date" class="form-control" id="start_date" name="start_date" required>
+                        <input type="datetime-local" class="form-control" id="start_date" name="start_date" required>
                     </div>
                     <div class="mb-3">
                         <label for="end_date" class="form-label">Tanggal Selesai</label>
-                        <input type="date" class="form-control" id="end_date" name="end_date" required>
+                        <input type="datetime-local" class="form-control" id="end_date" name="end_date" required>
                     </div>
-                    <div class="mb-3">
-                        <label for="id_shop" class="form-label">ID Toko</label>
-                        <input type="number" class="form-control" id="id_shop" name="id_shop" required>
-                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                     <button type="submit" class="btn btn-primary">Simpan</button>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+
+<!-- Modal Edit Promosi -->
 <div class="modal fade" id="editPromotionModal" tabindex="-1" aria-labelledby="editPromotionModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="editPromotionModalLabel">Edit Promosi</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <form id="editPromotionForm">
-                    <input type="hidden" id="edit_id_promotion" name="id_promotion">
+            <form id="editPromotionForm" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <input type="hidden" name="id_promotion" id="edit_id_promotion">
                     <div class="mb-3">
-                        <label for="edit_title_promotion" class="form-label">Promosi</label>
+                        <label for="edit_title_promotion" class="form-label">Judul Promosi</label>
                         <input type="text" class="form-control" id="edit_title_promotion" name="title_promotion" required>
                     </div>
                     <div class="mb-3">
-                        <label for="edit_description_promotion" class="form-label">Deskripsi</label>
-                        <input type="text" class="form-control" id="edit_description_promotion" name="description_promotion" required>
+                        <label for="edit_description_promotion" class="form-label">Deskripsi Promosi</label>
+                        <textarea class="form-control" id="edit_description_promotion" name="description_promotion" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit_photo_promotion" class="form-label">Foto Promosi</label>
+                        <input type="file" class="form-control" id="edit_photo_promotion" name="photo_promotion">
+                        <img id="edit_preview_photo" src="" alt="Preview Photo" class="img-fluid mt-2" style="max-height: 150px;">
                     </div>
                     <div class="mb-3">
                         <label for="edit_start_date" class="form-label">Tanggal Mulai</label>
-                        <input type="date" class="form-control" id="edit_start_date" name="start_date" required>
+                        <input type="datetime-local" class="form-control" id="edit_start_date" name="start_date" required>
                     </div>
                     <div class="mb-3">
                         <label for="edit_end_date" class="form-label">Tanggal Selesai</label>
-                        <input type="date" class="form-control" id="edit_end_date" name="end_date" required>
+                        <input type="datetime-local" class="form-control" id="edit_end_date" name="end_date" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                </form>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -126,13 +139,13 @@
                     var promotionTable = '';
                     $.each(response.promotions, function(index, promotion) {
                         promotionTable += '<tr>';
-                        promotionTable += '<td></td>';
-                        promotionTable += '<td>' + promotion.title_promotion + '</td>';
-                        promotionTable += '<td>' + promotion.description_promotion + '</td>';
-                        promotionTable += '<td>' + promotion.start_date + '</td>';
-                        promotionTable += '<td>' + promotion.end_date + '</td>';
+                        promotionTable += '<td><img src="<?= base_url('photoPromo/') ?>' + promotion.photo + '" alt="' + promotion.title + '" class="img-fixed-size"></td>';
+                        promotionTable += '<td>' + promotion.title + '</td>';
+                        promotionTable += '<td>' + promotion.description + '</td>';
+                        promotionTable += '<td>' + promotion.start + '</td>';
+                        promotionTable += '<td>' + promotion.end + '</td>';
                         promotionTable += '<td>';
-                        promotionTable += '<a href="#" class="btn btn-primary edit-product-btn" data-id="' + promotion.id_promotion + '" data-bs-toggle="modal" data-bs-target="#editProductModal">Edit</a> ';
+                        promotionTable += '<a href="#" class="btn btn-primary edit-promotion-btn" data-id="' + promotion.id_promotion + '" data-bs-toggle="modal" data-bs-target="#editPromotionModal">Edit</a> ';
                         promotionTable += '<form action="<?= site_url('promotionlist/delete') ?>" method="post" class="d-inline delete-promotion-form">';
                         promotionTable += '<input type="hidden" name="id_promotion" value="' + promotion.id_promotion + '">';
                         promotionTable += '<?= csrf_field() ?>';
@@ -149,19 +162,23 @@
             });
         }
 
-        $('#addPromotionForm').on('submit', function(e) {
+        $('#addPromotionForm').submit(function(e) {
             e.preventDefault();
+            var formData = new FormData(this);
             $.ajax({
                 url: '<?= site_url('promotionlist/save') ?>',
                 type: 'POST',
-                data: $(this).serialize(),
+                data: formData,
+                contentType: false,
+                processData: false,
                 success: function(response) {
-                    $('#addPromotionModal').modal('hide');
+                    $('#addPromotionModal').modal('hide'); // Menutup modal
+                    $('.modal-backdrop').remove();
+                    Swal.fire('Sukses!', 'Promosi berhasil ditambahkan.', 'success');
                     loadPromotions();
-                    alert('Promotion added successfully');
                 },
                 error: function() {
-                    alert('Failed to add promotion');
+                    Swal.fire('Gagal!', 'Promosi gagal ditambahkan.', 'error');
                 }
             });
         });
@@ -172,42 +189,52 @@
                 url: '<?= site_url('promotionlist/getPromotion') ?>/' + id,
                 type: 'GET',
                 dataType: 'json',
-                success: function(response) {
-                    $('#edit_id_promotion').val(response.id_promotion);
-                    $('#edit_title_promotion').val(response.title_promotion);
-                    $('#edit_description_promotion').val(response.description_promotion);
-                    $('#edit_start_date').val(response.start_date);
-                    $('#edit_end_date').val(response.end_date);
-                    $('#editPromotionModal').modal('show');
+                success: function(promotion) {
+                    $('#edit_id_promotion').val(promotion.id_promotion);
+                    $('#edit_title_promotion').val(promotion.title);
+                    $('#edit_description_promotion').val(promotion.description);
+                    $('#edit_start_date').val(promotion.start.replace(' ', 'T'));
+                    $('#edit_end_date').val(promotion.end.replace(' ', 'T'));
+                    $('#edit_preview_photo').attr('src', '<?= base_url('public/photoPromo/') ?>' + promotion.photo);
                 },
                 error: function() {
-                    alert('Could not fetch promotion data');
+                    alert('Could not fetch promotion details');
                 }
             });
         });
 
-        $('#editPromotionForm').on('submit', function(e) {
+
+        $('#editPromotionForm').submit(function(e) {
             e.preventDefault();
+            var formData = new FormData(this);
+
+            if (!$('#edit_photo_promotion').val()) {
+                formData.delete('photo_promotion');
+            }
+
             $.ajax({
                 url: '<?= site_url('promotionlist/update') ?>',
                 type: 'POST',
-                data: $(this).serialize(),
+                data: formData,
+                contentType: false,
+                processData: false,
                 success: function(response) {
                     $('#editPromotionModal').modal('hide');
+                    Swal.fire('Sukses!', 'Promosi berhasil diperbarui.', 'success');
                     loadPromotions();
-                    alert('Promotion updated successfully');
+                    $('.modal-backdrop').remove();
                 },
                 error: function() {
-                    alert('Failed to update promotion');
+                    Swal.fire('Gagal!', 'Promosi gagal diperbarui.', 'error');
                 }
             });
         });
+
 
         $(document).on('submit', '.delete-promotion-form', function(e) {
             e.preventDefault();
             var form = $(this);
 
-            // Use SweetAlert for delete confirmation
             Swal.fire({
                 title: 'Apakah Anda yakin?',
                 text: 'Anda tidak akan dapat mengembalikan ini!',
@@ -224,19 +251,11 @@
                         type: 'POST',
                         data: form.serialize(),
                         success: function(response) {
-                            Swal.fire(
-                                'Dihapus!',
-                                'Produk berhasil dihapus.',
-                                'success'
-                            )
+                            Swal.fire('Dihapus!', 'Promosi berhasil dihapus.', 'success');
                             loadPromotions();
                         },
                         error: function() {
-                            Swal.fire(
-                                'Gagal!',
-                                'Produk tidak dapat dihapus.',
-                                'error'
-                            )
+                            Swal.fire('Gagal!', 'Promosi tidak dapat dihapus.', 'error');
                         }
                     });
                 }

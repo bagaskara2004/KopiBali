@@ -16,7 +16,7 @@ class CProduct extends BaseController
     public function getCategories()
     {
         $categoryModel = new CategoryProduct();
-        $categories = $categoryModel->findAll();
+        $categories = $categoryModel->getAllCategoryProduct();
 
         return $this->response->setJSON(['categories' => $categories]);
     }
@@ -24,7 +24,7 @@ class CProduct extends BaseController
     public function getCategory($id)
     {
         $categoryModel = new CategoryProduct();
-        $category = $categoryModel->find($id);
+        $category = $categoryModel->getCategoryProductById($id);
 
         return $this->response->setJSON($category);
     }
@@ -33,11 +33,9 @@ class CProduct extends BaseController
     {
         $categoryModel = new CategoryProduct();
 
-        $data = [
-            'name_categoryProduct' => $this->request->getPost('name_categoryProduct')
-        ];
+        $data = $this->request->getPost();
 
-        $categoryModel->save($data);
+        $categoryModel->saveCategoryProduct($data);
 
         return $this->response->setJSON(['status' => 'Category saved']);
     }
@@ -47,11 +45,9 @@ class CProduct extends BaseController
         $categoryModel = new CategoryProduct();
         $id = $this->request->getPost('id_categoryProduct');
 
-        $data = [
-            'name_categoryProduct' => $this->request->getPost('name_categoryProduct')
-        ];
+        $data = $this->request->getPost();
 
-        $categoryModel->update($id, $data);
+        $categoryModel->updateCategoryProduct($id, $data);
 
         return $this->response->setJSON(['status' => 'Category updated']);
     }

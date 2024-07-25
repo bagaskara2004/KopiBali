@@ -29,4 +29,21 @@ class Media extends Model
         }
         return $results;
     }
+    public function saveMedia($data)
+    {
+        $data['name_media'] = $this->encrypter->encrypt($data['name_media']);
+        $data['link_media'] = $this->encrypter->encrypt($data['link_media']);
+
+        return $this->save($data);
+    }
+    public function updateMedia($id, $data)
+    {
+        $data['name_media'] = $this->encrypter->encrypt($data['name_media']);
+        $data['link_media'] = $this->encrypter->encrypt($data['link_media']);
+        return $this->update($id, $data);
+    }
+    public function deleteMedia($id)
+    {
+        return $this->delete($id);
+    }
 }

@@ -81,4 +81,42 @@ class Product extends Model
         ];
         return $results;
     }
+    public function getProduct()
+    {
+        $datas = $this->findAll();
+        $results = [];
+        foreach ($datas as $data) {
+            $results[] = [
+                'id_product' => $data['id_product'],
+                'name_product' => $this->encrypter->decrypt($data['name_product']),
+                'description_product' => $this->encrypter->decrypt($data['description_product']),
+                'photo_product' => $this->encrypter->decrypt($data['photo_product']),
+                'price_product' => 'Rp.' . $data['price_product'],
+                'recomended' =>  $data['recomended'],
+
+            ];
+        }
+        return $results;
+    }
+    public function saveProduct($data)
+    {
+        $data['name_product'] = $this->encrypter->encrypt($data['name_product']);
+        $data['description_product'] = $this->encrypter->encrypt($data['description_product']);
+        $data['photo_product'] = $this->encrypter->encrypt($data['photo_product']);
+
+
+        return $this->save($data);
+    }
+
+    public function updateProduct($id, $data)
+    {
+        $data['name_product'] = $this->encrypter->encrypt($data['name_product']);
+        $data['description_product'] = $this->encrypter->encrypt($data['description_product']);
+        $data['photo_product'] = $this->encrypter->encrypt($data['photo_product']);
+        return $this->update($id, $data);
+    }
+    public function getProductCount()
+    {
+        return $this->countAllResults();
+    }
 }

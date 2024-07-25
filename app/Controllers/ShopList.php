@@ -8,55 +8,50 @@ use CodeIgniter\HTTP\ResponseInterface;
 
 class ShopList extends BaseController
 {
+    protected $shopModel;
+    protected $encrypter;
+
+    public function __construct()
+    {
+        $this->shopModel = new Shop();
+        $this->encrypter = \Config\Services::encrypter();
+    }
     public function index()
     {
-        return view('admin/shopList');
+        $data = ['shop' => $this->dataShop];
+        return view('Admin/shopList', $data);
     }
 
-    public function getShops()
+
+
+    public function edit($id)
     {
-        $shopModel = new Shop();
-        $shops = $shopModel->findAll();
-        return $this->response->setJSON($shops);
+        $shop = $this->shopModel->find($id);
+        if (!$shop) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException("Shop with id $id not found");
+        }
+        return view('Admin/editShop', ['shop' => $shop]);
     }
-
-    public function save()
+    public function update($id)
     {
-        $shopModel = new Shop();
+        $data = $this->request->getPost();
 
-        // Handle file upload
-        $file = $this->request->getFile('gallery');
-        if ($file->isValid() && !$file->hasMoved()) {
-            $fileName = $file->getRandomName();
-            $file->move(WRITEPATH . 'Asset', $fileName);
-            $galleryPath = 'uploads/' . $fileName;
-        } else {
-            return $this->response->setJSON(['success' => false, 'message' => 'Failed to upload file']);
+
+        $data['name'] = $this->encrypter->encrypt($data['name']);
+        $data['email'] = $this->encrypter->encrypt($data['email']);
+        $data['address'] = $this->encrypter->encrypt($data['address']);
+        $data['telp'] = $this->encrypter->encrypt($data['telp']);
+        $data['maps'] = $this->encrypter->encrypt($data['maps']);
+        $data['password'] = $this->encrypter->encrypt($data['password']);
+        $data['open'] = $this->encrypter->encrypt($data['open']);
+        $data['close'] = $this->encrypter->encrypt($data['close']);
+
+        if ($this->request->getFile('gallery')->isValid()) {
+            $gallery = $this->request->getFile('gallery');
+            $data['gallery'] = $gallery->getRandomName();
+            $gallery->move('uploads', $data['gallery']);
         }
-
-        $password = $this->request->getPost('password');
-        if (is_string($password) && !empty($password)) {
-            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        } else {
-            return $this->response->setJSON(['success' => false, 'message' => 'Invalid password']);
-        }
-
-        $data = [
-            'name' => $this->request->getPost('name'),
-            'email' => $this->request->getPost('email'),
-            'address' => $this->request->getPost('address'),
-            'telp' => $this->request->getPost('telp'),
-            'maps' => $this->request->getPost('maps'),
-            'password' => $hashedPassword,
-            'gallery' => $galleryPath,
-            'open' => $this->request->getPost('open'),
-            'close' => $this->request->getPost('close'),
-        ];
-
-        if ($shopModel->insert($data)) {
-            return $this->response->setJSON(['success' => true]);
-        } else {
-            return $this->response->setJSON(['success' => false]);
-        }
+        $this->shopModel->update($id, $data);
+        return redirect()->to('/shoplist')->with('message', 'Shop updated successfully');
     }
 }

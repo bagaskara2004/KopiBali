@@ -1,7 +1,6 @@
 <?= $this->extend('Admin\admin') ?>
 <?= $this->section('content') ?>
 
-
 <style>
     .img-fixed-size {
         width: 40px;
@@ -9,12 +8,8 @@
         object-fit: cover;
         border-radius: 50%;
     }
-
-    .checkbox {
-        width: 30px;
-        height: 30px;
-    }
 </style>
+
 <main class="content px-3 py-2">
     <div class="container min-vh-100">
         <div class="container">
@@ -22,28 +17,29 @@
                 <div class="col-md-4">
                     <h4>List Produk</h4>
                 </div>
+                <div class="col-md-8 text-end">
+                    <button type="button" class="btn btn-primary" id="addProductBtn" data-bs-toggle="modal" data-bs-target="#addProductModal">Tambah Produk</button>
+                </div>
             </div>
-            <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addProductModal">
-                Tambah Produk
-            </button>
-        </div>
-        <div class="card">
-            <div class="card-datatable table-responsive pt-0">
-                <table class="datatables-basic table">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Nama Produk</th>
-                            <th>Deskripsi</th>
-                            <th>Harga</th>
-                            <th>Aksi</th>
-                            <th>Rekomendasi</th>
-                        </tr>
-                    </thead>
-                    <tbody id="product-list">
-                        <!-- Data produk akan dimuat di sini menggunakan AJAX -->
-                    </tbody>
-                </table>
+            <div class="card">
+                <div class="card-datatable table-responsive pt-0">
+                    <table class="datatables-basic table">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Foto</th>
+                                <th>Nama Produk</th>
+                                <th>Deskripsi</th>
+                                <th>Harga</th>
+                                <th>Aksi</th>
+                                <th>Rekomendasi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="product-list">
+                            <!-- Data produk akan dimuat di sini menggunakan AJAX -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
@@ -51,97 +47,103 @@
 
 <!-- Add Product Modal -->
 <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="addProductModalLabel">Tambah Produk</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <form id="addProductForm" action="<?php echo site_url('productlist/save'); ?>" method="post">
+            <form id="addProductForm">
+                <div class="modal-body">
+                    <input type="hidden" name="id_shop" value="1">
                     <div class="mb-3">
                         <label for="name_product" class="form-label">Nama Produk</label>
                         <input type="text" class="form-control" id="name_product" name="name_product" required>
                     </div>
                     <div class="mb-3">
                         <label for="description_product" class="form-label">Deskripsi Produk</label>
-                        <input type="text" class="form-control" id="description_product" name="description_product" required>
+                        <textarea class="form-control" id="description_product" name="description_product"></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="price_product" class="form-label">Harga Produk</label>
                         <input type="number" class="form-control" id="price_product" name="price_product" required>
                     </div>
                     <div class="mb-3">
-                        <label for="id_categoryProduct" class="form-label">ID Kategori Produk</label>
-                        <input type="number" class="form-control" id="id_categoryProduct" name="id_categoryProduct" required>
+                        <label for="photo_product" class="form-label">Foto Produk</label>
+                        <input type="file" class="form-control" id="photo_product" name="photo_product">
                     </div>
                     <div class="mb-3">
-                        <label for="id_shop" class="form-label">ID Toko</label>
-                        <input type="number" class="form-control" id="id_shop" name="id_shop" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="recomended" class="form-label">Rekomendasi</label>
-                        <select class="form-control" id="recomended" name="recomended" required>
-                            <option value="1">Ya</option>
-                            <option value="0">Tidak</option>
+                        <label for="id_categoryProduct" class="form-label">Kategori</label>
+                        <select class="form-control" id="id_categoryProduct" name="id_categoryProduct">
+                            <!-- Pilihan kategori akan dimuat menggunakan AJAX -->
                         </select>
                     </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="recomended" name="recomended" value="1">
+                        <input type="hidden" name="recomended" value="0" id="hiddenRecomended">
+                        <label class="form-check-label" for="recomended">Rekomendasi</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                     <button type="submit" class="btn btn-primary">Simpan</button>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
 
 <!-- Edit Product Modal -->
 <div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="editProductModalLabel">Edit Produk</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <form id="editProductForm" action="<?php echo site_url('productlist/update'); ?>" method="post">
-                    <input type="hidden" id="edit_id_product" name="id_product">
+            <form id="productForm">
+                <div class="modal-body">
+                    <input type="hidden" name="id_product" id="edit_id_product">
                     <div class="mb-3">
                         <label for="edit_name_product" class="form-label">Nama Produk</label>
                         <input type="text" class="form-control" id="edit_name_product" name="name_product" required>
                     </div>
                     <div class="mb-3">
                         <label for="edit_description_product" class="form-label">Deskripsi Produk</label>
-                        <input type="text" class="form-control" id="edit_description_product" name="description_product" required>
+                        <textarea class="form-control" id="edit_description_product" name="description_product"></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="edit_price_product" class="form-label">Harga Produk</label>
-                        <input type="number" class="form-control" id="edit_price_product" name="price_product" required>
+                        <label for="edit_price_product" class="form-label">Harga</label>
+                        <input type="number" class="form-control" id="edit_price_product" name="price_product">
                     </div>
                     <div class="mb-3">
-                        <label for="edit_id_categoryProduct" class="form-label">ID Kategori Produk</label>
-                        <input type="number" class="form-control" id="edit_id_categoryProduct" name="id_categoryProduct" required>
+                        <label for="edit_photo_product" class="form-label">Foto Produk</label>
+                        <input type="file" class="form-control" id="edit_photo_product" name="photo_product">
                     </div>
                     <div class="mb-3">
-                        <label for="edit_id_shop" class="form-label">ID Toko</label>
-                        <input type="number" class="form-control" id="edit_id_shop" name="id_shop" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="edit_recomended" class="form-label">Rekomendasi</label>
-                        <select class="form-control" id="edit_recomended" name="recomended" required>
-                            <option value="1">Ya</option>
-                            <option value="0">Tidak</option>
+                        <label for="edit_id_categoryProduct" class="form-label">Kategori</label>
+                        <select class="form-control" id="edit_id_categoryProduct" name="id_categoryProduct">
+                            <!-- Pilihan kategori akan dimuat menggunakan AJAX -->
                         </select>
                     </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="edit_recomended" name="recomended">
+                        <label class="form-check-label" for="edit_recomended">Rekomendasi</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                     <button type="submit" class="btn btn-primary">Simpan</button>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
 
 <script>
     $(document).ready(function() {
-
         loadProducts();
+        loadCategories();
 
         function loadProducts() {
             $.ajax({
@@ -152,19 +154,20 @@
                     var productTable = '';
                     $.each(response.products, function(index, product) {
                         productTable += '<tr>';
-                        productTable += '<td></td>';
+                        productTable += '<td>' + (index + 1) + '</td>';
+                        productTable += '<td><img src="<?= base_url('photoProduct/') ?>' + product.photo_product + '" alt="' + product.name_product + '" class="img-fixed-size"></td>';
                         productTable += '<td>' + product.name_product + '</td>';
                         productTable += '<td>' + product.description_product + '</td>';
                         productTable += '<td>Rp' + product.price_product + '</td>';
                         productTable += '<td>';
                         productTable += '<a href="#" class="btn btn-primary edit-product-btn" data-id="' + product.id_product + '" data-bs-toggle="modal" data-bs-target="#editProductModal">Edit</a> ';
-                        productTable += '<form action="<?= site_url('productlist/delete') ?>" method="post" class="d-inline delete-product-form">';
+                        productTable += '<form action="<?= site_url('productlist/deleteProduct') ?>" method="post" class="d-inline delete-product-form">';
                         productTable += '<input type="hidden" name="id_product" value="' + product.id_product + '">';
                         productTable += '<?= csrf_field() ?>';
                         productTable += '<button type="submit" class="btn btn-danger">Delete</button>';
                         productTable += '</form>';
                         productTable += '</td>';
-                        productTable += '<td><input type="checkbox" class="checkbox" id="vehicle1" name="vehicle1" value="Bike"></td>';
+                        productTable += '<td><input type="checkbox" class="form-check-input checkbox-recomended" data-id="' + product.id_product + '" ' + (product.recomended == 1 ? 'checked' : '') + '></td>';
                         productTable += '</tr>';
                     });
                     $('#product-list').html(productTable);
@@ -179,7 +182,6 @@
             e.preventDefault();
             var form = $(this);
 
-            // Use SweetAlert for delete confirmation
             Swal.fire({
                 title: 'Apakah Anda yakin?',
                 text: 'Anda tidak akan dapat mengembalikan ini!',
@@ -187,18 +189,17 @@
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, hapus!',
-                cancelButtonText: 'Batal'
+                confirmButtonText: 'Ya, hapus itu!'
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
                         url: form.attr('action'),
-                        type: 'POST',
+                        method: form.attr('method'),
                         data: form.serialize(),
                         success: function(response) {
                             Swal.fire(
                                 'Dihapus!',
-                                'Produk berhasil dihapus.',
+                                'Data Anda telah dihapus.',
                                 'success'
                             )
                             loadProducts();
@@ -206,7 +207,7 @@
                         error: function() {
                             Swal.fire(
                                 'Gagal!',
-                                'Produk tidak dapat dihapus.',
+                                'Terjadi kesalahan saat menghapus data.',
                                 'error'
                             )
                         }
@@ -215,46 +216,127 @@
             });
         });
 
-        $(document).on('click', '.edit-product-btn', function() {
-            var id = $(this).data('id');
-            $.ajax({
-                url: '<?= site_url('productlist/getProduct') ?>/' + id,
-                type: 'GET',
-                dataType: 'json',
-                success: function(product) {
-                    $('#edit_id_product').val(product.id_product);
-                    $('#edit_name_product').val(product.name_product);
-                    $('#edit_description_product').val(product.description_product);
-                    $('#edit_price_product').val(product.price_product);
-                    $('#edit_id_categoryProduct').val(product.id_categoryProduct);
-                    $('#edit_id_shop').val(product.id_shop);
-                    $('#edit_recomended').val(product.recomended);
-                },
-                error: function() {
-                    alert('Could not load product data');
-                }
-            });
-        });
-
-        $('#editProductForm').on('submit', function(e) {
+        $('#addProductForm').on('submit', function(e) {
             e.preventDefault();
+            var formData = new FormData(this);
             $.ajax({
-                url: $(this).attr('action'),
+                url: '<?= site_url('productlist/saveProduct') ?>',
                 type: 'POST',
-                data: $(this).serialize(),
+                data: formData,
+                contentType: false,
+                processData: false,
                 success: function(response) {
-                    $('#editProductModal').modal('hide');
+                    $('#addProductModal').modal('hide');
+                    $('#addProductForm')[0].reset();
+                    loadProducts();
                     Swal.fire(
-                        'Updated!',
-                        'Produk berhasil diperbarui.',
+                        'Berhasil!',
+                        'Produk berhasil ditambahkan.',
                         'success'
                     )
-                    loadProducts();
                 },
                 error: function() {
                     Swal.fire(
                         'Gagal!',
-                        'Produk tidak dapat diperbarui.',
+                        'Terjadi kesalahan saat menambahkan produk.',
+                        'error'
+                    )
+                }
+            });
+        });
+
+        $(document).on('click', '.edit-product-btn', function() {
+            var id_product = $(this).data('id');
+            $.ajax({
+                url: '<?= site_url('productlist/getProduct') ?>/' + id_product,
+                type: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    $('#edit_id_product').val(response.id_product);
+                    $('#edit_name_product').val(response.name_product);
+                    $('#edit_description_product').val(response.description_product);
+                    $('#edit_price_product').val(response.price_product);
+                    $('#edit_id_categoryProduct').val(response.id_categoryProduct);
+                    $('#edit_recomended').prop('checked', response.recomended);
+                },
+                error: function() {
+                    Swal.fire(
+                        'Gagal!',
+                        'Terjadi kesalahan saat memuat data produk.',
+                        'error'
+                    )
+                }
+            });
+        });
+
+        $('#productForm').on('submit', function(e) {
+            e.preventDefault();
+            var formData = new FormData(this);
+            $.ajax({
+                url: '<?= site_url('productlist/updateProduct') ?>',
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    $('#editProductModal').modal('hide');
+                    $('#productForm')[0].reset();
+                    loadProducts();
+                    Swal.fire(
+                        'Berhasil!',
+                        'Produk berhasil diperbarui.',
+                        'success'
+                    )
+                },
+                error: function() {
+                    Swal.fire(
+                        'Gagal!',
+                        'Terjadi kesalahan saat memperbarui produk.',
+                        'error'
+                    )
+                }
+            });
+        });
+
+        function loadCategories() {
+            $.ajax({
+                url: '<?= site_url('productlist/getCategories') ?>',
+                type: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    var categoryOptions = '<option value="">Pilih Kategori</option>';
+                    $.each(response.categories, function(index, category) {
+                        categoryOptions += '<option value="' + category.id_categoryProduct + '">' + category.name_categoryProduct + '</option>';
+                    });
+                    $('#id_categoryProduct').html(categoryOptions);
+                    $('#edit_id_categoryProduct').html(categoryOptions);
+                },
+                error: function() {
+                    alert('Could not load categories');
+                }
+            });
+        }
+
+        $(document).on('change', '.checkbox-recomended', function() {
+            var id_product = $(this).data('id');
+            var recomended = $(this).is(':checked') ? 1 : 0;
+            $.ajax({
+                url: '<?= site_url('productlist/updateRecomended') ?>/' + id_product,
+                type: 'POST',
+                data: {
+                    recomended: recomended
+                },
+                success: function(response) {
+                    Swal.fire(
+                        'Berhasil!',
+                        'Status rekomendasi berhasil diperbarui.',
+                        'success'
+                    )
+                },
+                error: function() {
+                    Swal.fire(
+                        'Gagal!',
+                        'Terjadi kesalahan saat memperbarui status rekomendasi.',
                         'error'
                     )
                 }
