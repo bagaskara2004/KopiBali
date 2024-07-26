@@ -15,23 +15,90 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <style>
         .sidebar {
-            background-color: #ffffff;
+            background-color: #293339;
             /* Warna latar belakang sidebar */
         }
-
-        .navbar {
-            background-color: #ffffff;
-            /* Warna latar belakang navbar */
+        
+        .nav-link {
+            color: #FFFFFF;
+            font-size: 120%;
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+            /* Warna teks link belum diklik */
         }
+
+        .btn{
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .table {
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .nav-link:hover {
+            color: red;
+        }
+
+        .sidebar-logo {
+            padding: 1.2rem;
+        }
+
+        .sidebar-logo-alt {
+            display: none;
+        }
+
+        .dropdown-divider{
+            color: #FFFFFF;
+        }
+
+        .sidebar-profile-name {
+            color: #FFFFFF;
+        }
+
+        @media (max-width: 1098px) {
+            .nav-link {
+                font-size: 85%;
+            }
+
+            .sidebar-logo {
+                display: none;
+                width: 150px;
+            }
+
+            .sidebar-logo-alt {
+                display: flex;
+                justify-content: center;
+                padding: 1.2rem;
+            }
+
+        }
+
+        .sidebar-btn {
+            margin-left: 55px;
+        }
+
 
         @media (max-width: 576px) {
             .sidebar {
                 position: absolute;
                 z-index: 1000;
-                height: 100vh;
-                width: 100px;
+                height: 110vh;
+                width: 75px;
                 left: -250px;
                 transition: left 0.3s;
+            }
+
+            .sidebar-logo {
+                display: none;
+            }
+
+            .sidebar-logo-alt {
+                display: none;
             }
 
             .sidebar-show {
@@ -57,104 +124,126 @@
 </head>
 <?php $session = session(); ?>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<div class="navbar">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a href="/admin" class="navbar-brand">
-                <img src="/img/logo-dark.png" class="w-200 h-45 rounded" alt="...">
-            </a>
-            <div class="navbar-nav ms-auto">
-                <div class="dropdown">
-                    <a href="#" class="nav-link dropdown-toggle text-dark" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="/img/team-4.jpg" alt="pfp" width="30" height="30" class="rounded-circle">
-                        <span class="d-none d-sm-inline mx-1">
-                            <?= session()->get('name') ?>
-                        </span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                        <li><a class="dropdown-item" href="/logout">Sign out</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </nav>
-    <div class="col py-3">
-        <button class="btn btn-outline-primary d-sm-none" id="sidebarToggle">
-            <i class="bi bi-list"></i></button>
-        <div id="contentOverlay" class="content-overlay"></div>
-    </div>
-</div>
-
 
 <div class="container-fluid">
     <div class="row flex-nowrap">
         <div class="col-auto col-sm-3 col-md-2 sidebar px-sm-2 px-0">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white">
+                <div class="sidebar-logo">
+                    <a href="/admin" class="navbar-brand">
+                        <img src="/img/logo.png" class="w-200 h-45 rounded" alt="...">
+                    </a>
+                </div>
+                <div class="sidebar-logo-alt">
+                    <a href="/admin" class="navbar-brand">
+                        <img src="/img/logo2.png" class="rounded" alt="...">
+                    </a>
+                </div>
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start min-vh-100" id="menu">
-                    <li class="nav-item">
+                    <li class="nav-item mb-3">
                         <a href="/overview" class="nav-link align-middle px-0">
                             <i class="bi bi-clipboard-data fs-3"></i> <span class="ms-1 d-none d-sm-inline">Overview</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="nav-item mb-3">
                         <a href="/productlist" class="nav-link px-0 align-middle">
                             <i class="bi bi-bag fs-3"></i> <span class="ms-1 d-none d-sm-inline">Product</span></a>
                     </li>
-                    <li>
+                    <li class="nav-item mb-3">
                         <a href="/promotion" class="nav-link px-0 align-middle">
                             <i class="bi bi-megaphone fs-3"></i> <span class="ms-1 d-none d-sm-inline">Promotion</span></a>
                     </li>
-                    <li>
+                    <li class="nav-item mb-3">
                         <a href="/userlist/getComment" class="nav-link px-0 align-middle">
-                            <i class="bi bi-bell fs-3"></i> <span class="ms-1 d-none d-sm-inline">Commen</span>
+                            <i class="bi bi-bell fs-3"></i> <span class="ms-1 d-none d-sm-inline">Comment</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="nav-item mb-3">
                         <a href="/shoplist" class="nav-link px-0 align-middle">
                             <i class="bi bi-shop-window fs-3"></i> <span class="ms-1 d-none d-sm-inline">Shop</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="nav-item mb-3">
                         <a href="/cproduct" class="nav-link px-0 align-middle">
                             <i class="bi bi-card-list fs-3"></i> <span class="ms-1 d-none d-sm-inline">Category Product</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="nav-item mb-3">
                         <a href="/medialist" class="nav-link px-0 align-middle">
-                            <i class="bi bi-bell-fill fs-3"></i> <span class="ms-1 d-none d-sm-inline">Media List</span>
+                            <i class="bi bi-view-list fs-3"></i> <span class="ms-1 d-none d-sm-inline">Media List</span>
+                        </a>
+                    </li>
+                    <li class="nav-item mb-3">
+                        <a href="/userlist" class="nav-link px-0 align-middle">
+                            <i class="bi bi-person-vcard fs-3"></i> <span class="ms-1 d-none d-sm-inline">User List</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/userlist" class="nav-link px-0 align-middle">
-                            <i class="bi bi-bell-fill fs-3"></i> <span class="ms-1 d-none d-sm-inline">User List</span>
-                        </a>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                        <div class="navbar-profile">
+                            <ul class="navbar-nav">
+                                <li class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle text-dark" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img src="/img/team-4.jpg" alt="pfp" width="30" height="30" class="rounded-circle">
+                                        <span class="sidebar-profile-name d-none d-sm-inline mx-1">
+                                            <?= session()->get('name') ?>
+                                            chiyyy
+                                        </span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                                        <li>
+                                            <span class="sidebar-profile-name d-inline d-sm-none mx-1">
+                                                Halo <?= session()->get('name') ?>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <hr class="dropdown-divider d-inline d-sm-none mx-1">
+                                        </li>
+                                        <li><a class="dropdown-item" href="/logout">Sign out</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                 </ul>
                 <hr>
             </div>
         </div>
         <div class="col py-3">
+            <div class="navbar">
+                <nav>
+                    <div class="container-fluid d-flex justify-content-between">
+                        <div class="sidebar-btn d-flex align-items-center">
+                            <button class="btn btn-outline-primary d-sm-none" id="sidebarToggle">
+                                <i class="bi bi-list"></i>
+                            </button>
+                        </div>
+                    </div>
+                </nav>
+            </div>
             <?= $this->renderSection('content') ?>
+            <footer class="content-footer footer bg-footer-theme">
+                <div class="container-xxl">
+                    <div class="footer-container d-flex align-items-center justify-content-between py-2 flex-md-row flex-column">
+                        <div>
+                            <img src="/img/logo-dark.png" class="w-200 h-45 rounded" alt="...">
+                            • Copyright ©
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script>
+                        </div>
+                        <div>
+                            <a href="#" class="footer-link me-4" target="_blank"><i class="bi bi-facebook"></i></a>
+                            <a href="#" target="_blank" class="footer-link me-4"><i class="bi bi-twitter"></i></a>
+                            <a href="#" target="_blank" class="footer-link d-none d-sm-inline-block"><i class="bi bi-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
     </div>
-    <footer class="content-footer footer bg-footer-theme">
-        <div class="container-xxl">
-            <div class="footer-container d-flex align-items-center justify-content-between py-2 flex-md-row flex-column">
-                <div>
-                    <img src="/img/logo-dark.png" class="w-200 h-45 rounded" alt="...">
-                    • Copyright ©
-                    <script>
-                        document.write(new Date().getFullYear());
-                    </script>
-                </div>
-                <div>
-                    <a href="#" class="footer-link me-4" target="_blank"><i class="bi bi-facebook"></i></a>
-                    <a href="#" target="_blank" class="footer-link me-4"><i class="bi bi-twitter"></i></a>
-                    <a href="#" target="_blank" class="footer-link d-none d-sm-inline-block"><i class="bi bi-github"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
 </div>
 <!-- Bootstrap Bundle JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -169,4 +258,5 @@
         document.querySelector('.sidebar').classList.remove('sidebar-show');
         document.getElementById('contentOverlay').classList.remove('content-overlay-show');
     });
+
 </script>
