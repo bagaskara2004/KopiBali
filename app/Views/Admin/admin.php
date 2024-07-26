@@ -15,10 +15,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <style>
         .sidebar {
+            display: flex;
+            width: 18%;
+            padding: 15px;
             background-color: #293339;
             /* Warna latar belakang sidebar */
         }
-        
+
+        .content {
+            width: 100%;
+            padding: 15px;
+        }
+
         .nav-link {
             color: #FFFFFF;
             font-size: 120%;
@@ -60,7 +68,7 @@
             color: #FFFFFF;
         }
 
-        @media (max-width: 1098px) {
+        @media (max-width: 1294px) {
             .nav-link {
                 font-size: 85%;
             }
@@ -81,7 +89,6 @@
         .sidebar-btn {
             margin-left: 55px;
         }
-
 
         @media (max-width: 576px) {
             .sidebar {
@@ -114,11 +121,7 @@
                 z-index: 999;
                 display: none;
             }
-
-            .content-overlay-show {
-                display: block;
-            }
-
+            
         }
     </style>
 </head>
@@ -126,8 +129,8 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <div class="container-fluid">
-    <div class="row flex-nowrap">
-        <div class="col-auto col-sm-3 col-md-2 sidebar px-sm-2 px-0">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar px-sm-2 px-0">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white">
                 <div class="sidebar-logo">
                     <a href="/admin" class="navbar-brand">
@@ -189,7 +192,6 @@
                                         <img src="/img/team-4.jpg" alt="pfp" width="30" height="30" class="rounded-circle">
                                         <span class="sidebar-profile-name d-none d-sm-inline mx-1">
                                             <?= session()->get('name') ?>
-                                            chiyyy
                                         </span>
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
@@ -211,19 +213,21 @@
                 <hr>
             </div>
         </div>
-        <div class="col py-3">
+        <div class="content col py-3" >
             <div class="navbar">
                 <nav>
                     <div class="container-fluid d-flex justify-content-between">
                         <div class="sidebar-btn d-flex align-items-center">
-                            <button class="btn btn-outline-primary d-sm-none" id="sidebarToggle">
-                                <i class="bi bi-list"></i>
+                            <button class="navbar-toggler d-sm-none" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
                             </button>
                         </div>
                     </div>
                 </nav>
             </div>
+            <div id="contents">
             <?= $this->renderSection('content') ?>
+            </div>
             <footer class="content-footer footer bg-footer-theme">
                 <div class="container-xxl">
                     <div class="footer-container d-flex align-items-center justify-content-between py-2 flex-md-row flex-column">
@@ -249,14 +253,21 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 <script>
-    document.getElementById('sidebarToggle').addEventListener('click', function() {
-        document.querySelector('.sidebar').classList.toggle('sidebar-show');
-        document.getElementById('contentOverlay').classList.toggle('content-overlay-show');
-    });
 
-    document.getElementById('contentOverlay').addEventListener('click', function() {
-        document.querySelector('.sidebar').classList.remove('sidebar-show');
-        document.getElementById('contentOverlay').classList.remove('content-overlay-show');
+    document.addEventListener("DOMContentLoaded", function() {
+        const sidebar = document.querySelector(".sidebar");
+        const contents = document.getElementById('contents')
+        const toggler = document.querySelector('.navbar-toggler');
+
+        toggler.addEventListener("click", function() {
+            sidebar.classList.toggle("sidebar-show");
+        });
+
+        contents.addEventListener("click", function() {
+            if (sidebar.classList.contains("sidebar-show")) {
+                sidebar.classList.remove("sidebar-show");
+            }
+        });
     });
 
 </script>
