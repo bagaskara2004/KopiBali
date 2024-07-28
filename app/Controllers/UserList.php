@@ -9,6 +9,10 @@ class UserList extends BaseController
 {
     public function index()
     {
+        $session = session();
+        if (!$session->get('id_shop')) {
+            return redirect()->to('/auth');
+        }
         $userModel = new User();
         $data['users'] = $userModel->where('post', 1)->getAllUser();
         return view('admin/userList', $data);

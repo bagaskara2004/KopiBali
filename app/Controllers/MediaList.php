@@ -16,6 +16,10 @@ class MediaList extends BaseController
 
     public function index()
     {
+        $session = session();
+        if (!$session->get('id_shop')) {
+            return redirect()->to('/auth');
+        }
         return view('admin/media');
     }
 

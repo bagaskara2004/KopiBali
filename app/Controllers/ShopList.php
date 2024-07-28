@@ -18,6 +18,10 @@ class ShopList extends BaseController
     }
     public function index()
     {
+        $session = session();
+        if (!$session->get('id_shop')) {
+            return redirect()->to('/auth');
+        }
         $data = ['shop' => $this->dataShop];
         return view('Admin/shopList', $data);
     }
