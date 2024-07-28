@@ -19,12 +19,6 @@
             width: 18%;
             padding: 15px;
             background-color: #293339;
-            /* Warna latar belakang sidebar */
-        }
-
-        .content {
-            width: 100%;
-            padding: 15px;
         }
 
         .nav-link {
@@ -53,24 +47,25 @@
         }
 
         .sidebar-logo {
-            padding: 1.2rem;
+            width: 300%;
+            padding: 1.5rem;
         }
 
         .sidebar-logo-alt {
             display: none;
         }
 
-        .dropdown-divider{
-            color: #FFFFFF;
-        }
-
         .sidebar-profile-name {
             color: #FFFFFF;
         }
 
-        @media (max-width: 1294px) {
+        @media (max-width: 1024px) {
             .nav-link {
                 font-size: 85%;
+            }
+
+            .sidebar{
+                width: 25%;
             }
 
             .sidebar-logo {
@@ -121,7 +116,7 @@
                 z-index: 999;
                 display: none;
             }
-            
+
         }
     </style>
 </head>
@@ -130,11 +125,12 @@
 
 <div class="container-fluid">
     <div class="row">
+        <!--Sidebar-->
         <div class="col-sm-3 col-md-2 sidebar px-sm-2 px-0">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white">
                 <div class="sidebar-logo">
                     <a href="/admin" class="navbar-brand">
-                        <img src="/img/logo.png" class="w-200 h-45 rounded" alt="...">
+                        <img src="/img/logo.png" class="rounded" alt="..." width="220px" ">
                     </a>
                 </div>
                 <div class="sidebar-logo-alt">
@@ -145,44 +141,44 @@
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start min-vh-100" id="menu">
                     <li class="nav-item mb-3">
                         <a href="/overview" class="nav-link align-middle px-0">
-                            <i class="bi bi-clipboard-data fs-3"></i> <span class="ms-1 d-none d-sm-inline">Overview</span>
+                            <i class="bi bi-clipboard-data fs-3"></i> <span class="ms-3 d-none d-sm-inline">Overview</span>
                         </a>
                     </li>
                     <li class="nav-item mb-3">
                         <a href="/productlist" class="nav-link px-0 align-middle">
-                            <i class="bi bi-bag fs-3"></i> <span class="ms-1 d-none d-sm-inline">Product</span></a>
+                            <i class="bi bi-bag fs-3"></i> <span class="ms-3 d-none d-sm-inline">Product</span></a>
                     </li>
                     <li class="nav-item mb-3">
                         <a href="/promotion" class="nav-link px-0 align-middle">
-                            <i class="bi bi-megaphone fs-3"></i> <span class="ms-1 d-none d-sm-inline">Promotion</span></a>
+                            <i class="bi bi-megaphone fs-3"></i> <span class="ms-3 d-none d-sm-inline">Promotion</span></a>
                     </li>
                     <li class="nav-item mb-3">
                         <a href="/userlist/getComment" class="nav-link px-0 align-middle">
-                            <i class="bi bi-bell fs-3"></i> <span class="ms-1 d-none d-sm-inline">Comment</span>
+                            <i class="bi bi-bell fs-3"></i> <span class="ms-3 d-none d-sm-inline">Comment</span>
                         </a>
                     </li>
                     <li class="nav-item mb-3">
                         <a href="/shoplist" class="nav-link px-0 align-middle">
-                            <i class="bi bi-shop-window fs-3"></i> <span class="ms-1 d-none d-sm-inline">Shop</span>
+                            <i class="bi bi-shop-window fs-3"></i> <span class="ms-3 d-none d-sm-inline">Shop</span>
                         </a>
                     </li>
                     <li class="nav-item mb-3">
                         <a href="/cproduct" class="nav-link px-0 align-middle">
-                            <i class="bi bi-card-list fs-3"></i> <span class="ms-1 d-none d-sm-inline">Category Product</span>
+                            <i class="bi bi-card-list fs-3"></i> <span class="ms-3 d-none d-sm-inline">Category Product</span>
                         </a>
                     </li>
                     <li class="nav-item mb-3">
                         <a href="/medialist" class="nav-link px-0 align-middle">
-                            <i class="bi bi-view-list fs-3"></i> <span class="ms-1 d-none d-sm-inline">Media List</span>
+                            <i class="bi bi-view-list fs-3"></i> <span class="ms-3 d-none d-sm-inline">Media List</span>
                         </a>
                     </li>
                     <li class="nav-item mb-3">
                         <a href="/userlist" class="nav-link px-0 align-middle">
-                            <i class="bi bi-person-vcard fs-3"></i> <span class="ms-1 d-none d-sm-inline">User List</span>
+                            <i class="bi bi-person-vcard fs-3"></i> <span class="ms-3 d-none d-sm-inline">User List</span>
                         </a>
                     </li>
                     <li>
-                        <hr class="dropdown-divider">
+                        <div class="dropdown-divider" style="color: #FFFFFF"></div>
                     </li>
                     <li>
                         <div class="navbar-profile">
@@ -201,7 +197,7 @@
                                             </span>
                                         </li>
                                         <li>
-                                            <hr class="dropdown-divider d-inline d-sm-none mx-1">
+                                            <div class="dropdown-divider d-inline d-sm-none mx-1">
                                         </li>
                                         <li><a class="dropdown-item" href="/logout">Sign out</a></li>
                                     </ul>
@@ -213,7 +209,8 @@
                 <hr>
             </div>
         </div>
-        <div class="content col py-3" >
+        <!--Content-->
+        <div class="col py-4" >
             <div class="navbar">
                 <nav>
                     <div class="container-fluid d-flex justify-content-between">
@@ -251,9 +248,7 @@
 </div>
 <!-- Bootstrap Bundle JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
 <script>
-
     document.addEventListener("DOMContentLoaded", function() {
         const sidebar = document.querySelector(".sidebar");
         const contents = document.getElementById('contents')
@@ -269,5 +264,4 @@
             }
         });
     });
-
 </script>
