@@ -9,6 +9,7 @@
         border-radius: 50%;
     }
 </style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <main class="content px-3 py-2">
     <div class="container min-vh-100">
@@ -101,9 +102,9 @@
                 <h5 class="modal-title" id="editProductModalLabel">Edit Produk</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form id="productForm">
+            <form id="editProductForm">
                 <div class="modal-body">
-                    <input type="hidden" name="id_product" id="edit_id_product">
+                    <input type="hidden" id="edit_id_product" name="id_product">
                     <div class="mb-3">
                         <label for="edit_name_product" class="form-label">Nama Produk</label>
                         <input type="text" class="form-control" id="edit_name_product" name="name_product" required>
@@ -113,12 +114,13 @@
                         <textarea class="form-control" id="edit_description_product" name="description_product"></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="edit_price_product" class="form-label">Harga</label>
-                        <input type="number" class="form-control" id="edit_price_product" name="price_product">
+                        <label for="edit_price_product" class="form-label">Harga Produk</label>
+                        <input type="text" class="form-control" id="edit_price_product" name="price_product" required>
                     </div>
                     <div class="mb-3">
                         <label for="edit_photo_product" class="form-label">Foto Produk</label>
                         <input type="file" class="form-control" id="edit_photo_product" name="photo_product">
+                        <img id="current_photo_product" src="" class="img-thumbnail mt-2" style="max-height: 100px;">
                     </div>
                     <div class="mb-3">
                         <label for="edit_id_categoryProduct" class="form-label">Kategori</label>
@@ -127,7 +129,7 @@
                         </select>
                     </div>
                     <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="edit_recomended" name="recomended">
+                        <input type="checkbox" class="form-check-input" id="edit_recomended" name="recomended" value="1">
                         <label class="form-check-label" for="edit_recomended">Rekomendasi</label>
                     </div>
                 </div>
@@ -140,12 +142,14 @@
     </div>
 </div>
 
+
 <script>
     $(document).ready(function() {
         loadProducts();
         loadCategories();
 
         function loadProducts() {
+            loadCategories();
             $.ajax({
                 url: '<?= site_url('productlist/getProducts') ?>',
                 type: 'GET',
@@ -157,6 +161,7 @@
                         productTable += '<td>' + (index + 1) + '</td>';
                         productTable += '<td><img src="<?= base_url('photoProduct/') ?>' + product.photo_product + '" alt="' + product.name_product + '" class="img-fixed-size"></td>';
                         productTable += '<td>' + product.name_product + '</td>';
+                        productTable += '<td>' + product.photo_product + '</td>';
                         productTable += '<td>' + product.description_product + '</td>';
                         productTable += '<td>Rp' + product.price_product + '</td>';
                         productTable += '<td>';
@@ -203,6 +208,7 @@
                                 'success'
                             )
                             loadProducts();
+                            $('.modal-backdrop').remove();
                         },
                         error: function() {
                             Swal.fire(
@@ -229,6 +235,7 @@
                     $('#addProductModal').modal('hide');
                     $('#addProductForm')[0].reset();
                     loadProducts();
+                    $('.modal-backdrop').remove();
                     Swal.fire(
                         'Berhasil!',
                         'Produk berhasil ditambahkan.',
@@ -246,57 +253,54 @@
         });
 
         $(document).on('click', '.edit-product-btn', function() {
-            var id_product = $(this).data('id');
+            var productId = $(this).data('id');
             $.ajax({
-                url: '<?= site_url('productlist/getProduct') ?>/' + id_product,
+                url: '<?= site_url('productlist/getProductById') ?>/' + productId,
                 type: 'GET',
                 dataType: 'json',
-                success: function(response) {
-                    $('#edit_id_product').val(response.id_product);
-                    $('#edit_name_product').val(response.name_product);
-                    $('#edit_description_product').val(response.description_product);
-                    $('#edit_price_product').val(response.price_product);
-                    $('#edit_id_categoryProduct').val(response.id_categoryProduct);
-                    $('#edit_recomended').prop('checked', response.recomended);
-                },
-                error: function() {
-                    Swal.fire(
-                        'Gagal!',
-                        'Terjadi kesalahan saat memuat data produk.',
-                        'error'
-                    )
+                success: function(product) {
+
+                    $('#edit_id_product').val(product.id_product);
+                    $('#edit_name_product').val(product.name);
+                    $('#edit_description_product').val(product.description);
+                    $('#edit_price_product').val(product.price);
+                    $('#current_photo_product').attr('src', '<?= base_url('photoProduct/') ?>' + product.photo);
+                    $('#edit_id_categoryProduct').val(product.id_categoryProduct);
+                    $('#edit_recomended').prop('checked', product.recomended == 1);
+
+
                 }
             });
         });
 
-        $('#productForm').on('submit', function(e) {
+        $('#editProductForm').on('submit', function(e) {
             e.preventDefault();
             var formData = new FormData(this);
             $.ajax({
                 url: '<?= site_url('productlist/updateProduct') ?>',
                 type: 'POST',
                 data: formData,
-                contentType: false,
                 processData: false,
+                contentType: false,
                 success: function(response) {
                     $('#editProductModal').modal('hide');
-                    $('#productForm')[0].reset();
+
+                    alert('Produk berhasil diperbarui');
+
                     loadProducts();
-                    Swal.fire(
-                        'Berhasil!',
-                        'Produk berhasil diperbarui.',
-                        'success'
-                    )
+                    $('.modal-backdrop').remove();
+
                 },
-                error: function() {
-                    Swal.fire(
-                        'Gagal!',
-                        'Terjadi kesalahan saat memperbarui produk.',
-                        'error'
-                    )
+                error: function(xhr, status, error) {
+                    console.error('Status: ' + status);
+                    console.error('Error: ' + error);
+                    console.error('Response: ' + xhr.responseText);
+                    alert('Terjadi kesalahan. Silakan coba lagi.');
                 }
             });
         });
+
+
 
         function loadCategories() {
             $.ajax({

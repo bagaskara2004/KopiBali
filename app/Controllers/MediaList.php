@@ -5,7 +5,6 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\Media;
 
-
 class MediaList extends BaseController
 {
     protected $mediaModel;
@@ -49,8 +48,21 @@ class MediaList extends BaseController
 
     public function deleteMedia()
     {
-        $id = $this->request->getPost('id');
-        $this->mediaModel->deleteMedia($id);
-        return $this->response->setJSON(['status' => 'success']);
+        $logger = \Config\Services::logger();
+
+        try {
+            $id = $this->request->getPost('id_media');
+            $result = $this->mediaModel->deleteMedia($id);
+
+            if ($result) {
+                return $this->response->setJSON(['status' => 'success']);
+            } else {
+                $logger->error('Delete failed: Media ID not found');
+                return $this->response->setJSON(['status' => 'fail', 'message' => 'Delete failed']);
+            }
+        } catch (\Exception $e) {
+            $logger->error('Error occurred: ' . $e->getMessage());
+            return $this->response->setJSON(['status' => 'error', 'message' => 'An error occurred while deleting media.']);
+        }
     }
 }

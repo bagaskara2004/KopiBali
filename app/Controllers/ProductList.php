@@ -14,6 +14,7 @@ class ProductList extends BaseController
 
     public function index()
     {
+
         return view('admin/productList');
     }
 
@@ -27,7 +28,7 @@ class ProductList extends BaseController
 
     public function getProductById($id)
     {
-        $product = $this->productModel->getProductById($id);
+        $product = $this->productModel->getProductId($id);
         if ($product) {
             return $this->response->setJSON($product);
         }
@@ -41,7 +42,7 @@ class ProductList extends BaseController
         $photo = $this->request->getFile('photo_product');
 
         if ($photo->isValid() && !$photo->hasMoved()) {
-            $photo->move(WRITEPATH . '/public/photoProduct');
+            $photo->move('photoProduct');
             $data['photo_product'] = $photo->getName();
         }
 
@@ -49,20 +50,6 @@ class ProductList extends BaseController
         return $this->response->setJSON(['status' => 'Product saved']);
     }
 
-    public function updateProduct($id)
-    {
-
-        $id = $this->request->getPost('id_product');
-
-        $data = $this->request->getPost();
-        if ($this->request->getFile('photo_product')->isValid()) {
-            $data['photo_product'] = $this->request->getFile('photo_product')->store();
-        }
-        if ($this->productModel->updateProduct($id, $data)) {
-            return $this->response->setJSON(['status' => 'Product updated']);
-        }
-        return $this->response->setJSON(['error' => 'Failed to update product'], ResponseInterface::HTTP_BAD_REQUEST);
-    }
 
     public function delete()
     {
@@ -81,6 +68,29 @@ class ProductList extends BaseController
     }
 
 
+    public function updateProduct()
+    {
+        $productModel = new Product();
+        $id = $this->request->getPost('id_product');
+        $data = $this->request->getPost();
+        $photo = $this->request->getFile('photo_product');
+
+
+        if ($photo->isValid() && !$photo->hasMoved()) {
+            $photo->move('photoProduct');
+            $data['photo_product'] = $photo->getName();
+        }
+
+
+        if ($productModel->updateProduct($id, $data)) {
+            return $this->response->setJSON(['status' => 'Product updated']);
+        } else {
+            return $this->response->setJSON(['status' => 'Update failed'], ResponseInterface::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
+
     public function updateRecomended($id)
     {
         $productModel = new Product();
@@ -88,4 +98,5 @@ class ProductList extends BaseController
         $productModel->update($id, $data);
         return $this->response->setJSON(['status' => 'success']);
     }
+    
 }

@@ -26,7 +26,12 @@
             }],
             chart: {
                 type: 'line',
-                height: 350
+                height: '50%',
+                width: '95%',
+                responsive: true,
+                animations: {
+                    enabled: true
+                }
             },
             title: {
                 text: 'User Count Per Month',

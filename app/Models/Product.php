@@ -110,13 +110,45 @@ class Product extends Model
 
     public function updateProduct($id, $data)
     {
-        $data['name_product'] = $this->encrypter->encrypt($data['name_product']);
-        $data['description_product'] = $this->encrypter->encrypt($data['description_product']);
-        $data['photo_product'] = $this->encrypter->encrypt($data['photo_product']);
+        if (isset($data['name_product'])) {
+            $data['name_product'] = $this->encrypter->encrypt($data['name_product']);
+        }
+        if (isset( $data['description_product'])) {
+            $data['description_product'] = $this->encrypter->encrypt($data['description_product']);
+        }
+
+        if (isset($data['photo_product'])) {
+            $data['photo_product'] = $this->encrypter->encrypt($data['photo_product']);
+        } else {
+        }
+
+
+
         return $this->update($id, $data);
     }
+
     public function getProductCount()
     {
         return $this->countAllResults();
+    }
+
+    public function getProductId($id)
+    {
+        $datas = $this->select('product.*,categoryproduct.name_categoryProduct')->join('categoryproduct', 'product.id_categoryProduct = categoryproduct.id_categoryProduct')->find($id);
+        if (!$datas) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Product Tidak Ditemukan");
+        }
+        $results = [
+            'id_product' => $datas['id_product'],
+            'id_categoryProduct' => $datas['id_categoryProduct'],
+            'name' => $this->encrypter->decrypt($datas['name_product']),
+            'description' => $this->encrypter->decrypt($datas['description_product']),
+           
+            'photo' => $this->encrypter->decrypt($datas['photo_product']),
+            'price' => $datas['price_product'],
+            'category' => $this->encrypter->decrypt($datas['name_categoryProduct']),
+            'recomended' =>  $datas['recomended'],
+        ];
+        return $results;
     }
 }

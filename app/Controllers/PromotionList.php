@@ -23,7 +23,7 @@ class PromotionList extends BaseController
     public function getPromotion($id)
     {
         $promotionModel = new Promotion();
-        $promotion = $promotionModel->getPromotionById($id);
+        $promotion = $promotionModel->getPromotionId($id);
         return $this->response->setJSON($promotion);
     }
 
@@ -34,7 +34,7 @@ class PromotionList extends BaseController
         $photo = $this->request->getFile('photo_promotion');
 
         if ($photo->isValid() && !$photo->hasMoved()) {
-            $photo->move(WRITEPATH . '/public/photoProduct');
+            $photo->move('photoPromo');
             $data['photo_promotion'] = $photo->getName();
         }
 
@@ -51,18 +51,14 @@ class PromotionList extends BaseController
         $photo = $this->request->getFile('photo_promotion');
 
         if ($photo && $photo->isValid() && !$photo->hasMoved()) {
-            $photo->move(WRITEPATH . 'uploads/promotion_photos');
+            $photo->move('photoPromo');
             $data['photo_promotion'] = $photo->getName();
-        } else {
-
-            unset($data['photo_promotion']);
         }
 
-        if ($promotionModel->update($id, $data)) {
-            echo $this->response->setJSON($data);
+        if ($promotionModel->updatePromotion($id, $data)) {
+            return $this->response->setJSON(['status' => 'Product updated']);
         }
-        // return $this->response->setJSON(['error' => 'Failed to update promotion'], ResponseInterface::HTTP_BAD_REQUEST);
-        echo $this->response->setJSON($data);
+        return $this->response->setJSON(['error' => 'Failed to update promotion'], ResponseInterface::HTTP_BAD_REQUEST);
     }
 
 
@@ -75,14 +71,5 @@ class PromotionList extends BaseController
         return $this->response->setJSON(['status' => 'Promotion deleted']);
     }
 
-    private function uploadFile($fileInput)
-    {
-        $file = $this->request->getFile($fileInput);
-        if ($file->isValid() && !$file->hasMoved()) {
-            $newName = $file->getRandomName();
-            $file->move(WRITEPATH . '/public/photoProduct', $newName);
-            return $newName;
-        }
-        return null;
-    }
+   
 }

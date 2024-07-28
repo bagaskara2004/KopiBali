@@ -33,7 +33,7 @@ class Auth extends BaseController
                         'name' => $data['name']
                     ];
                     $this->session->set($sesi);
-                    return redirect()->to('/admin');
+                    return redirect()->to('/overview');
                 } else {
                     session()->setFlashdata('erorr', 'Wrong Password');
                     return redirect()->to('/auth');

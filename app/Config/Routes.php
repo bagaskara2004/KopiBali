@@ -14,7 +14,8 @@ $routes->get('/productlist', 'ProductList::index');
 $routes->get('/productlist/getProducts', 'ProductList::getProducts');
 $routes->get('/productlist/getProductById/(:num)', 'ProductList::getProductById/$1');
 $routes->post('/productlist/saveProduct', 'ProductList::saveProduct');
-$routes->post('/productlist/updateProduct/(:num)', 'ProductList::updateProduct/$1');
+$routes->post('/productlist/updateProduct', 'ProductList::updateProduct');
+
 $routes->post('/productlist/deleteProduct', 'ProductList::delete');
 $routes->get('/productlist/getCategories', 'ProductList::getCategories');
 $routes->get('/productlist/getShops', 'ProductList::getShops');
@@ -49,10 +50,13 @@ $routes->get('/shoplist/edit/(:num)', 'ShopList::edit/$1');
 $routes->post('/shoplist/update/(:num)', 'ShopList::update/$1');
 $routes->get('/medialist', 'MediaList::index');
 $routes->get('/medialist/getMedia', 'MediaList::getMedia');
-$routes->get('getMediaById/(:num)', 'MediaList::getMediaById/$1');
+$routes->get('/medialist/getMediaById/(:num)', 'MediaList::getMediaById/$1');
 $routes->post('/medialist/saveMedia', 'MediaList::saveMedia');
-$routes->post('/updateMedia', 'MediaList::updateMedia');
-$routes->post('/deleteMedia', 'MediaList::deleteMedia');
+$routes->post('/medialist/updateMedia', 'MediaList::updateMedia');
+
+$routes->post('medialist/deleteMedia', 'MediaList::deleteMedia');
+
+
 $routes->get('/overview', 'OverView::index');
 
 

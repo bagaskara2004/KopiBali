@@ -86,4 +86,20 @@ class Promotion extends Model
 
         return $this->update($id, $data);
     }
+    public function getPromotionId($id)
+    {
+        $datas = $this->find($id);
+        if (!$datas) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Promotion Tidak Ditemukan");
+        }
+        $results = [
+            'id_promotion' => $datas['id_promotion'],
+            'title' => $this->encrypter->decrypt($datas['title_promotion']),
+            'description' => $this->encrypter->decrypt($datas['description_promotion']),
+            'photo' => $this->encrypter->decrypt($datas['photo_promotion']),
+            'start' => $datas['start_date'],
+            'end' => $datas['end_date'],
+        ];
+        return $results;
+    }
 }

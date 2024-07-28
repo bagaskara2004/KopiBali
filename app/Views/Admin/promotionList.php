@@ -172,7 +172,7 @@
                 contentType: false,
                 processData: false,
                 success: function(response) {
-                    $('#addPromotionModal').modal('hide'); // Menutup modal
+                    $('#addPromotionModal').modal('hide');
                     $('.modal-backdrop').remove();
                     Swal.fire('Sukses!', 'Promosi berhasil ditambahkan.', 'success');
                     loadPromotions();
@@ -195,7 +195,7 @@
                     $('#edit_description_promotion').val(promotion.description);
                     $('#edit_start_date').val(promotion.start.replace(' ', 'T'));
                     $('#edit_end_date').val(promotion.end.replace(' ', 'T'));
-                    $('#edit_preview_photo').attr('src', '<?= base_url('public/photoPromo/') ?>' + promotion.photo);
+                    $('#edit_preview_photo').attr('src', '<?= base_url('photoPromo/') ?>' + promotion.photo);
                 },
                 error: function() {
                     alert('Could not fetch promotion details');
@@ -207,10 +207,6 @@
         $('#editPromotionForm').submit(function(e) {
             e.preventDefault();
             var formData = new FormData(this);
-
-            if (!$('#edit_photo_promotion').val()) {
-                formData.delete('photo_promotion');
-            }
 
             $.ajax({
                 url: '<?= site_url('promotionlist/update') ?>',
