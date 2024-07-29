@@ -14,7 +14,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <h4>Category Product</h4>
+                    <h4>List User</h4>
                 </div>
             </div>
         </div>
