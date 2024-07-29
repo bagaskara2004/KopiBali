@@ -48,7 +48,7 @@
 
         .sidebar-logo {
             width: 300%;
-            padding: 1.5rem;
+            padding: 1.7rem;
         }
 
         .sidebar-logo-alt {
@@ -59,26 +59,53 @@
             color: #FFFFFF;
         }
 
+        .navbar-toggler{
+            display: none;
+        }
+
         @media (max-width: 1024px) {
             .nav-link {
                 font-size: 85%;
             }
 
-            .sidebar{
-                width: 25%;
+            .navbar-toggler{
+                display: flex;
+            }
+
+            .sidebar {
+                position: absolute;
+                z-index: 1000;
+                height: 110vh;
+                width: 75px;
+                left: -250px;
+                transition: left 0.3s;
+            }
+
+            .sidebar-show {
+                left: 0;
             }
 
             .sidebar-logo {
                 display: none;
-                width: 150px;
             }
 
             .sidebar-logo-alt {
+                width: 100%;
                 display: flex;
                 justify-content: center;
                 padding: 1.2rem;
             }
 
+        }
+
+        @media (max-width: 1200px) {
+            .nav-link {
+                font-size: 90%;
+            }
+
+            .sidebar{
+                width: 25%;
+            }
         }
 
         .sidebar-btn {
@@ -130,49 +157,49 @@
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white">
                 <div class="sidebar-logo">
                     <a href="/admin" class="navbar-brand">
-                        <img src="/img/logo.png" class="rounded" alt="..." width="220px" ">
+                        <img src="/img/logo_light.png" class="rounded" alt="..." width="27%">
                     </a>
                 </div>
                 <div class="sidebar-logo-alt">
                     <a href="/admin" class="navbar-brand">
-                        <img src="/img/logo2.png" class="rounded" alt="...">
+                        <img src="/img/logo.png" class="rounded" alt="..." width="100px" height="100px">
                     </a>
                 </div>
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start min-vh-100" id="menu">
-                    <li class="nav-item mb-3">
+                    <li class="nav-item mb-4">
                         <a href="/overview" class="nav-link align-middle px-0">
                             <i class="bi bi-clipboard-data fs-3"></i> <span class="ms-3 d-none d-sm-inline">Overview</span>
                         </a>
                     </li>
-                    <li class="nav-item mb-3">
+                    <li class="nav-item mb-4">
                         <a href="/productlist" class="nav-link px-0 align-middle">
                             <i class="bi bi-bag fs-3"></i> <span class="ms-3 d-none d-sm-inline">Product</span></a>
                     </li>
-                    <li class="nav-item mb-3">
+                    <li class="nav-item mb-4">
                         <a href="/promotion" class="nav-link px-0 align-middle">
                             <i class="bi bi-megaphone fs-3"></i> <span class="ms-3 d-none d-sm-inline">Promotion</span></a>
                     </li>
-                    <li class="nav-item mb-3">
+                    <li class="nav-item mb-4">
                         <a href="/userlist/getComment" class="nav-link px-0 align-middle">
                             <i class="bi bi-bell fs-3"></i> <span class="ms-3 d-none d-sm-inline">Comment</span>
                         </a>
                     </li>
-                    <li class="nav-item mb-3">
+                    <li class="nav-item mb-4">
                         <a href="/shoplist" class="nav-link px-0 align-middle">
                             <i class="bi bi-shop-window fs-3"></i> <span class="ms-3 d-none d-sm-inline">Shop</span>
                         </a>
                     </li>
-                    <li class="nav-item mb-3">
+                    <li class="nav-item mb-4">
                         <a href="/cproduct" class="nav-link px-0 align-middle">
                             <i class="bi bi-card-list fs-3"></i> <span class="ms-3 d-none d-sm-inline">Category Product</span>
                         </a>
                     </li>
-                    <li class="nav-item mb-3">
+                    <li class="nav-item mb-4">
                         <a href="/medialist" class="nav-link px-0 align-middle">
                             <i class="bi bi-view-list fs-3"></i> <span class="ms-3 d-none d-sm-inline">Media List</span>
                         </a>
                     </li>
-                    <li class="nav-item mb-3">
+                    <li class="nav-item mb-4">
                         <a href="/userlist" class="nav-link px-0 align-middle">
                             <i class="bi bi-person-vcard fs-3"></i> <span class="ms-3 d-none d-sm-inline">User List</span>
                         </a>
@@ -210,12 +237,12 @@
             </div>
         </div>
         <!--Content-->
-        <div class="col py-4" >
+        <div class="col py-3" >
             <div class="navbar">
                 <nav>
                     <div class="container-fluid d-flex justify-content-between">
                         <div class="sidebar-btn d-flex align-items-center">
-                            <button class="navbar-toggler d-sm-none" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <button class="navbar-toggler" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                         </div>
@@ -229,7 +256,7 @@
                 <div class="container-xxl">
                     <div class="footer-container d-flex align-items-center justify-content-between py-2 flex-md-row flex-column">
                         <div>
-                            <img src="/img/logo-dark.png" class="w-200 h-45 rounded" alt="...">
+                            <img src="/img/logo_dark.png" class="rounded" alt="..." width="15%">
                             • Copyright ©
                             <script>
                                 document.write(new Date().getFullYear());
