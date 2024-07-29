@@ -10,7 +10,6 @@ class User extends Seeder
     {
         $userModel = new \App\Models\User();
         $encrypter = \Config\Services::encrypter();
-        date_default_timezone_set('Asia/Makassar');
         $data = [
             [
                 'id_shop' => 1,
@@ -18,7 +17,7 @@ class User extends Seeder
                 'name' => $encrypter->encrypt('bagaskara'),
                 'comment' => $encrypter->encrypt('aku sangat suka coffee disini karena sangat gurih'),
                 'post' => True,
-                'date' => date("Y-m-d H:i:s")
+                'date' => date("Y-m-d H:i:s", strtotime("2024-07-25 15:30:00"))
             ],
             [
                 'id_shop' => 1,
@@ -26,7 +25,7 @@ class User extends Seeder
                 'name' => $encrypter->encrypt('joko'),
                 'comment' => $encrypter->encrypt('coffee nya gurih dengan aroma yang khas, aku sukla sekali dengan coffee disini'),
                 'post' => True,
-                'date' => date("Y-m-d H:i:s")
+                'date' => date("Y-m-d H:i:s", strtotime("2024-07-26 15:30:00"))
             ],
             [
                 'id_shop' => 1,
@@ -34,7 +33,7 @@ class User extends Seeder
                 'name' => $encrypter->encrypt('koko'),
                 'comment' => $encrypter->encrypt('coffenya nyaman di lambung , rasanya mantap sekali'),
                 'post' => True,
-                'date' => date("Y-m-d H:i:s")
+                'date' => date("Y-m-d H:i:s", strtotime("2024-07-27 15:30:00"))
             ],
             [
                 'id_shop' => 1,
@@ -42,7 +41,7 @@ class User extends Seeder
                 'name' => $encrypter->encrypt('daus'),
                 'comment' => $encrypter->encrypt('suka banget dengan kopi yang ada disini, pelayanannya juga ramah dan cepat'),
                 'post' => True,
-                'date' => date("Y-m-d H:i:s")
+                'date' => date("Y-m-d H:i:s", strtotime("2024-07-28 15:30:00"))
             ],
             [
                 'id_shop' => 1,
@@ -50,7 +49,7 @@ class User extends Seeder
                 'name' => $encrypter->encrypt('jawir'),
                 'comment' => $encrypter->encrypt('kopinya b aja , pelayannya juga kurang cepat, bikin ngantuk'),
                 'post' => False,
-                'date' => date("Y-m-d H:i:s")
+                'date' => date("Y-m-d H:i:s", strtotime("2024-07-29 11:30:00"))
             ],
         ];
         

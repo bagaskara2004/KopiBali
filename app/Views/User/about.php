@@ -18,7 +18,7 @@
 <!-- About Start -->
 <div class="container-fluid py-5">
     <div class="container">
-        <div class="row g-5 align-items-center">
+        <div class="row g-5 align-items-center mb-5">
             <div class="col-lg-6">
                 <div class="row g-3">
                     <div class="col-6 text-start">
@@ -37,9 +37,9 @@
             </div>
             <div class="col-lg-6">
                 <h5 class="section-title ff-secondary text-start text-primary fw-normal">About Us</h5>
-                <h1 class="mb-4">Welcome to <i class="fa fa-utensils text-primary me-2"></i>Restoran</h1>
-                <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos erat ipsum et lorem et sit, sed stet lorem sit.</p>
-                <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                <h1 class="mb-4">Welcome to <img src="img/logo_dark.png" alt="" class="w-25"></h1>
+                <p class="mb-4">Selamat datang di bali bean, tempat di mana setiap cangkir kopi bercerita. Berdiri sejak 2024, kami adalah destinasi utama bagi para pecinta kopi yang mencari pengalaman yang lebih dari sekadar secangkir minuman panas.</p>
+                <p class="mb-4">Di bali bean, kami percaya bahwa kopi bukan hanya sekadar minuman, tetapi sebuah seni dan pengalaman. Kami memulai perjalanan kami dengan satu tujuan: menghadirkan kopi berkualitas tinggi dengan cita rasa yang luar biasa dan pelayanan yang hangat. Setiap biji kopi yang kami sajikan dipilih dengan cermat dari perkebunan terbaik, dan dipanggang dengan hati-hati untuk memastikan aroma dan rasa yang sempurna.</p>
                 <div class="row g-4 mb-4">
                     <div class="col-sm-6">
                         <div class="d-flex align-items-center border-start border-5 border-primary px-3">
@@ -62,8 +62,19 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <h3 class="bg-dark text-light text-center rounded py-1">Visi</h3>
+                <p class="mb-4">Kami bertujuan untuk menjadi tempat di mana setiap orang bisa merasakan kehangatan dan kenyamanan, sambil menikmati kopi yang menggugah selera. Kami ingin bali bean menjadi bagian dari rutinitas harian Anda, tempat Anda bisa bersantai, berbicara, dan menemukan inspirasi.</p>
+            </div>
+            <div class="col-lg-6">
+                <h3 class="bg-dark text-light text-center rounded py-1">Misi</h3>
+                <p class="mb-4">Kualitas Terbaik: Menyajikan kopi dengan kualitas premium, dari biji hingga cangkir.
+                    Pengalaman Pelanggan: Memberikan pelayanan yang ramah dan pengalaman yang menyenangkan untuk setiap tamu.
+                    Inovasi Berkelanjutan: Terus-menerus mengeksplorasi dan menghadirkan varian kopi baru dan teknik penyajian inovatif.</p>
+            </div>
+        </div>
     </div>
 </div>
 <!-- About End -->
-
 <?= $this->endSection() ?>

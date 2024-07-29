@@ -11,6 +11,7 @@ class Product extends Model
     protected $allowedFields    = ['id_categoryProduct', 'id_shop', 'name_product', 'description_product', 'photo_product', 'price_product', 'recomended'];
     // Dates
     protected $useTimestamps = true;
+    protected $useSoftDeletes = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';

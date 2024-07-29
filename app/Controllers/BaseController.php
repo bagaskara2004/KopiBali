@@ -21,7 +21,7 @@ use Psr\Log\LoggerInterface;
  */
 abstract class BaseController extends Controller
 {
-    protected $title = 'Coffee';
+    protected $title = 'Bali Bean';
     protected $encrypter;
     protected $dataShop;
     protected $shopModel;
