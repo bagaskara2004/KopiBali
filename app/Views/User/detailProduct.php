@@ -6,8 +6,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb justify-content-center text-uppercase">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
-                <li class="breadcrumb-item"><a href="/product">Product</a></li>
-                <li class="breadcrumb-item text-white active" aria-current="page">Detail</li>
+                <li class="breadcrumb-item text-white active" aria-current="page">DetailProduct</li>
             </ol>
         </nav>
     </div>
