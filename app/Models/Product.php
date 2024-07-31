@@ -60,11 +60,14 @@ class Product extends Model
 
     public function convertDescription($teks)
     {
-        $newTeks = '';
-        for ($i = 0; $i < 100; $i++) {
-            $newTeks .= $teks[$i];
+        if (strlen($teks) > 100) {
+            $newTeks = '';
+            for ($i = 0; $i < 100; $i++) {
+                $newTeks .= $teks[$i];
+            }
+            return $newTeks . '....';
         }
-        return $newTeks . '....';
+        return $teks;
     }
 
     public function getProductById($id)
