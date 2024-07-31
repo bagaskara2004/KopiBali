@@ -45,16 +45,13 @@ class ShopList extends BaseController
         $data['email'] = $this->encrypter->encrypt($data['email']);
         $data['address'] = $this->encrypter->encrypt($data['address']);
         $data['telp'] = $this->encrypter->encrypt($data['telp']);
-        $data['maps'] = $this->encrypter->encrypt($data['maps']);
+        $data['maps'] = $data['maps'];
         $data['password'] = $this->encrypter->encrypt($data['password']);
-        $data['open'] = $this->encrypter->encrypt($data['open']);
-        $data['close'] = $this->encrypter->encrypt($data['close']);
+        $data['open'] = $data['open'];
+        $data['close'] = $data['close'];
+        $data['gallery'] = $this->encrypter->encrypt($data['gallery']);
 
-        if ($this->request->getFile('gallery')->isValid()) {
-            $gallery = $this->request->getFile('gallery');
-            $data['gallery'] = $gallery->getRandomName();
-            $gallery->move('uploads', $data['gallery']);
-        }
+        
         $this->shopModel->update($id, $data);
         return redirect()->to('/shoplist')->with('message', 'Shop updated successfully');
     }

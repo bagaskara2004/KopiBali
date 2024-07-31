@@ -79,11 +79,7 @@
                             <!-- Pilihan kategori akan dimuat menggunakan AJAX -->
                         </select>
                     </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="recomended" name="recomended" value="1">
-                        <input type="hidden" name="recomended" value="0" id="hiddenRecomended">
-                        <label class="form-check-label" for="recomended">Rekomendasi</label>
-                    </div>
+                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>

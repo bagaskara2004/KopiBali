@@ -103,7 +103,6 @@
                         categoryTable += '<form action="<?= site_url('cproduct/delete') ?>" method="post" class="d-inline delete-category-form">';
                         categoryTable += '<input type="hidden" name="id_categoryProduct" value="' + category.id_categoryProduct + '">';
                         categoryTable += '<?= csrf_field() ?>';
-                        categoryTable += '<button type="submit" class="btn btn-danger">Delete</button>';
                         categoryTable += '</form>';
                         categoryTable += '</td>';
                         categoryTable += '</tr>';

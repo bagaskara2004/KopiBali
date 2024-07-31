@@ -56,7 +56,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="gallery" class="form-label">Gallery</label>
-                        <input type="file" class="form-control" id="gallery" name="gallery" accept="image/*">
+                        <input type="text" class="form-control" id="gallery" name="gallery" value="<?= old('gallery', $shop['gallery'] ?? '') ?>" required>
                     </div>
                     <div class="mb-3">
                         <label for="open" class="form-label">Open</label>
